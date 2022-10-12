@@ -1,11 +1,13 @@
 {
   "name": "awesome-collections",
   "version": "0.0.0",
-  "description": "",
+  "description": "LinkedList, Deque, Stack, Queue, heaps, and other useful data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "build": "lerna run build --stream",
+    "lint": "eslint . --ext .ts  --cache --cache-strategy content",
+    "test": "lerna run test",
+    "prepare": "husky install && pnpm --silent build"
   },
   "keywords": [],
   "author": "",
