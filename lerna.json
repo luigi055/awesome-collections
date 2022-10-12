@@ -1,0 +1,19 @@
+{
+	"$schema": "node_modules/lerna/schemas/lerna-schema.json",
+	"useWorkspaces": true,
+	"packages": ["packages/*"],
+	"npmClient": "pnpm",
+	"version": "independent",
+	"useNx": false,
+	"command": {
+		"version": {
+			"conventionalCommits": true,
+			"allowBranch": ["main"]
+		},
+		"publish": {
+			"conventionalCommits": true,
+			"allowBranch": ["main"],
+			"yes": true
+		}
+	}
+}
