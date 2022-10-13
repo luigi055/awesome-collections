@@ -1,0 +1,1 @@
+export { shift } from './shift';

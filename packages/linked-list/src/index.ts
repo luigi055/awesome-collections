@@ -1,2 +1,5 @@
-export { LinkedListNode } from './linked-list-node';
-export type { DoublyLinkedListNode } from './linked-list-node';
+export { RawLinkedList } from './core/raw-linked-list';
+export { LinkedListNode } from './core/linked-list-node';
+
+export type { DoublyLinkedListNode } from './core/linked-list-node';
+export type { LinkedListDataStructure } from './core/raw-linked-list';
