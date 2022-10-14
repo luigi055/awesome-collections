@@ -25,8 +25,19 @@ export class LinkedList<T = any> implements DoublyLinkedList {
     return this.#rawLinkedList.tail?.value;
   }
 
-  public push = (...items: T[]) => push<T>(this.#rawLinkedList, ...items);
-  public unshift = (...items: T[]) => unshift<T>(this.#rawLinkedList, ...items);
-  public pop = () => pop<T>(this.#rawLinkedList);
-  public shift = () => shift<T>(this.#rawLinkedList);
+  public push(...items: T[]) {
+    return push<T>(this.#rawLinkedList, ...items);
+  }
+
+  public unshift(...items: T[]) {
+    return unshift<T>(this.#rawLinkedList, ...items);
+  }
+
+  public pop() {
+    return pop<T>(this.#rawLinkedList);
+  }
+
+  public shift() {
+    return shift<T>(this.#rawLinkedList);
+  }
 }
