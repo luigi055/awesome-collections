@@ -1,8 +1,8 @@
-import {
-  DoublyLinkedListNode,
-  LinkedListNode,
-} from '../../../../linked-list-node';
 import { LinkedListDataStructure } from '../../../../raw-linked-list';
+import {
+  LinkedListNode,
+  DoublyLinkedListNode,
+} from '../../../../linked-list-node';
 
 function unshiftValue<T = any>(
   rawLinkedList: LinkedListDataStructure,
