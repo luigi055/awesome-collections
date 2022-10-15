@@ -1,7 +1,6 @@
 import { expect, it } from 'vitest';
 
 import { RawLinkedList } from '../../../../raw-linked-list';
-import { LinkedListNode } from '../../../../linked-list-node';
 import { pop } from './pop';
 import { push } from '../push';
 

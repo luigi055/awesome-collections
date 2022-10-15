@@ -60,4 +60,17 @@ describe('Testing basic Linked list methods', () => {
 
     expect(linkedList).toEqual(expectedLinkedList);
   });
+  //  it('should push a second value and the tail previous should point to the head', () => {
+  //    const doublyLinkedList = new LinkedList();
+  //    const firstValue = 'hello';
+  //    const secondValue = 'world';
+  //    doublyLinkedList.push(firstValue);
+  //    doublyLinkedList.push(secondValue);
+
+  //    expect(doublyLinkedList.get(doublyLinkedList.size)).toBe(undefined);
+  //    expect(doublyLinkedList.get(doublyLinkedList.size - 2)).toBe(
+  //      doublyLinkedList.head
+  //    );
+  //    expect(doublyLinkedList.size).toBe(2);
+  //  });
 });

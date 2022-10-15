@@ -37,4 +37,10 @@ export interface BasicLinkedList<T = any> {
    * If the linked list is empty, undefined is returned and the linked list is not modified.
    */
   shift(): T | undefined;
+
+  /**
+   * Returns a specified element from the linked list..
+   * @returns Returns the element associated with the specified index. If no element is associated with the index, undefined is returned.
+   */
+  get(index: number): T | undefined;
 }
