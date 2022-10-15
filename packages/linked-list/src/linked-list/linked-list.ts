@@ -1,7 +1,13 @@
 import { DoublyLinkedList } from './types';
 import { RawLinkedList } from '../core/raw-linked-list';
-import { pop, push, unshift, shift } from '../core/traits/basic-linked-list';
-import { get } from '../core/traits/basic-linked-list/definitions/get';
+import {
+  pop,
+  push,
+  unshift,
+  shift,
+  get,
+  set,
+} from '../core/traits/basic-linked-list';
 
 export class LinkedList<T = any> implements DoublyLinkedList {
   #rawLinkedList = new RawLinkedList<T>();
@@ -44,5 +50,9 @@ export class LinkedList<T = any> implements DoublyLinkedList {
 
   public get(index: number) {
     return get<T>(this.#rawLinkedList, index);
+  }
+
+  public set(index: number, value: T) {
+    return set(this.#rawLinkedList, index, value);
   }
 }

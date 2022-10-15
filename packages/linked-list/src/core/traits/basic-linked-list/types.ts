@@ -43,4 +43,12 @@ export interface BasicLinkedList<T = any> {
    * @returns Returns the element associated with the specified index. If no element is associated with the index, undefined is returned.
    */
   get(index: number): T | undefined;
+
+  /**
+   * change the value of an index in the linked list
+   * @param index  the index of the element to change value
+   * @param value  the new value
+   * @returns true if the index is inside of the length of the linked list and was possible to change the element or false if was is not.
+   */
+  set(index: number, value: T): boolean;
 }
