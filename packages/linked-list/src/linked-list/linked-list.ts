@@ -7,8 +7,9 @@ import {
   shift,
   get,
   set,
+  deleteValue,
+  insert,
 } from '../core/traits/basic-linked-list';
-import { deleteValue } from '../core/traits/basic-linked-list/definitions/delete/delete';
 
 export class LinkedList<T = any> implements DoublyLinkedList {
   #rawLinkedList = new RawLinkedList<T>();
@@ -59,5 +60,9 @@ export class LinkedList<T = any> implements DoublyLinkedList {
 
   public delete(index: number) {
     return deleteValue<T>(this.#rawLinkedList, index);
+  }
+
+  public insert(index: number, value: T) {
+    return insert<T>(this.#rawLinkedList, index, value);
   }
 }

@@ -57,4 +57,12 @@ export interface BasicLinkedList<T = any> {
    * @returns Returns the deleted node if an element in the Linked list existed and has been removed, or undefined if the element does not exist.
    */
   delete(index: number): T | undefined;
+
+  /**
+   * insert an element in the specified index an linked list.
+   * @param index  the index of the element to insert
+   * @param value  the value to insert
+   * @returns true if the index is inside of the length of the linked list and was possible to insert the element or false if was is not.
+   */
+  insert(index: number, value: T): boolean;
 }
