@@ -51,4 +51,10 @@ export interface BasicLinkedList<T = any> {
    * @returns true if the index is inside of the length of the linked list and was possible to change the element or false if was is not.
    */
   set(index: number, value: T): boolean;
+
+  /**
+   * Removes a specified index from the Linked list.
+   * @returns Returns the deleted node if an element in the Linked list existed and has been removed, or undefined if the element does not exist.
+   */
+  delete(index: number): T | undefined;
 }

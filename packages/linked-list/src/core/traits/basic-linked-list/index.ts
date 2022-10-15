@@ -6,3 +6,4 @@ export { pop } from './definitions/pop';
 export { shift } from './definitions/shift';
 export { get } from './definitions/get';
 export { set } from './definitions/set';
+export { deleteValue } from './definitions/delete';
