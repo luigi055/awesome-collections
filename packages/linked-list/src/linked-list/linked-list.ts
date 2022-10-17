@@ -1,17 +1,8 @@
-import { DoublyLinkedList } from './types';
+import type { DoublyLinkedList } from './types';
 import { RawLinkedList } from '../core/raw-linked-list';
-import {
-  pop,
-  push,
-  unshift,
-  shift,
-  get,
-  set,
-  deleteValue,
-  insert,
-} from '../core/traits/basic-linked-list';
-
-export class LinkedList<T = any> implements DoublyLinkedList {
+import * as iterable from '../core/traits/iterable';
+import * as basicLinkedList from '../core/traits/basic-linked-list';
+export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
   /**
@@ -20,6 +11,14 @@ export class LinkedList<T = any> implements DoublyLinkedList {
    */
   static isLinkedList(linkedList: any): linkedList is LinkedList<any> {
     return linkedList instanceof LinkedList;
+  }
+
+  constructor(iterator?: Iterable<T> | null) {
+    if (iterator) {
+      for (const value of iterator) {
+        this.push(value);
+      }
+    }
   }
 
   public get size() {
@@ -34,35 +33,51 @@ export class LinkedList<T = any> implements DoublyLinkedList {
     return this.#rawLinkedList.tail?.value;
   }
 
+  [Symbol.iterator]() {
+    return iterable.values<T>(this.#rawLinkedList);
+  }
+
+  public values() {
+    return iterable.values<T>(this.#rawLinkedList);
+  }
+
+  public keys() {
+    return iterable.keys<T>(this.#rawLinkedList);
+  }
+
+  public entries() {
+    return iterable.entries<T>(this.#rawLinkedList);
+  }
+
   public push(...items: T[]) {
-    return push<T>(this.#rawLinkedList, ...items);
+    return basicLinkedList.push<T>(this.#rawLinkedList, ...items);
   }
 
   public unshift(...items: T[]) {
-    return unshift<T>(this.#rawLinkedList, ...items);
+    return basicLinkedList.unshift<T>(this.#rawLinkedList, ...items);
   }
 
   public pop() {
-    return pop<T>(this.#rawLinkedList);
+    return basicLinkedList.pop<T>(this.#rawLinkedList);
   }
 
   public shift() {
-    return shift<T>(this.#rawLinkedList);
+    return basicLinkedList.shift<T>(this.#rawLinkedList);
   }
 
   public get(index: number) {
-    return get<T>(this.#rawLinkedList, index);
+    return basicLinkedList.get<T>(this.#rawLinkedList, index);
   }
 
   public set(index: number, value: T) {
-    return set<T>(this.#rawLinkedList, index, value);
+    return basicLinkedList.set<T>(this.#rawLinkedList, index, value);
   }
 
   public delete(index: number) {
-    return deleteValue<T>(this.#rawLinkedList, index);
+    return basicLinkedList.deleteValue<T>(this.#rawLinkedList, index);
   }
 
   public insert(index: number, value: T) {
-    return insert<T>(this.#rawLinkedList, index, value);
+    return basicLinkedList.insert<T>(this.#rawLinkedList, index, value);
   }
 }
