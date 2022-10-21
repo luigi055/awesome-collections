@@ -8,8 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm build:js && npm run build:types",
-    "build:js": "rollup -c rollup.config.js",
+    "build": "pnpm build:js && pnpm build:types",
+    "build:js": "pnpm rollup -c rollup.config.js",
     "build:types": "tsc -p tsconfig.build.json",
     "format": "prettier --write .",
     "lint:format": "prettier --check .",
