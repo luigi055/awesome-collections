@@ -7,7 +7,8 @@
     "build": "lerna run build --stream",
     "lint": "eslint . --ext .ts  --cache --cache-strategy content",
     "test": "lerna run test",
-    "prepare": "husky install && pnpm --silent build"
+    "prepare": "husky install && pnpm --silent build",
+    "types:check": "tsc --noEmit false --outDir .tsbuild/ --incremental --tsBuildInfoFile .tsbuildinfo"
   },
   "keywords": [],
   "author": "",
