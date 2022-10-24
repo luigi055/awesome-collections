@@ -8,13 +8,13 @@
   "command": {
     "version": {
       "conventionalCommits": true,
-      "message": "feat: bump up package version",
+      "message": "chore(release): bump up version %s",
       "allowBranch": ["main"]
     },
     "publish": {
       "conventionalCommits": true,
       "allowBranch": ["main"],
-      "message": "feat: publish package",
+      "message": "chore(release): publish package %s",
       "yes": true
     }
   }

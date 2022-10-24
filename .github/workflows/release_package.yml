@@ -15,9 +15,6 @@ on:
           - 'hotfix'
           - 'minor'
           - 'major'
-  push:
-    paths:
-      - 'packages/linked-list/**'
 
 jobs:
   release:
@@ -81,4 +78,6 @@ jobs:
           pnpm lerna version ${{ github.event.inputs.release_type }} --conventional-commits --no-private
 
       - name: Publish package
-        run: pnpm lerna publish from-git
+        run: pnpm lerna publish from-package --no-verify-access --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
