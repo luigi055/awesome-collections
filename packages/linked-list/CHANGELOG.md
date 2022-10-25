@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2-alpha.1](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.2-alpha.0...awesome-collections-linked-list@0.0.2-alpha.1) (2022-10-25)
+
+### Features
+
+- **linked-list:** implement clear method in the linked list ([51da7db](https://github.com/luigi055/awesome-collections/commit/51da7dbff3592b46fd6c8fb525621fb1bb717323))
+
 ## 0.0.2-alpha.0 (2022-10-25)
 
 ### Features
