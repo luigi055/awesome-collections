@@ -8,3 +8,4 @@ export { get } from './definitions/get';
 export { set } from './definitions/set';
 export { deleteValue } from './definitions/delete';
 export { insert } from './definitions/insert';
+export { clear } from './definitions/clear';

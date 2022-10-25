@@ -80,4 +80,8 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   public insert(index: number, value: T) {
     return basicLinkedList.insert<T>(this.#rawLinkedList, index, value);
   }
+
+  public clear() {
+    return basicLinkedList.clear(this.#rawLinkedList);
+  }
 }

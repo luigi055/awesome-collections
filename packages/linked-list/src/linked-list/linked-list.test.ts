@@ -526,4 +526,15 @@ describe('Testing basic Linked list methods', () => {
     expect(linkedList.get(0)).toBe(firstValue);
     expect(linkedList.size).toBe(3);
   });
+
+  it('should clear the entire linkedlist', () => {
+    const linkedList = new LinkedList([1, 5, 3, 24, 5]);
+
+    expect(linkedList.size).toEqual(5);
+
+    linkedList.clear();
+
+    expect(linkedList).toEqual(new LinkedList());
+    expect(linkedList.size).toEqual(0);
+  });
 });

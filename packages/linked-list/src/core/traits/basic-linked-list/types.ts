@@ -65,4 +65,9 @@ export interface BasicLinkedList<T = any> {
    * @returns true if the index is inside of the length of the linked list and was possible to insert the element or false if was is not.
    */
   insert(index: number, value: T): boolean;
+
+  /**
+   * removes all elements in the linked list
+   */
+  clear(): void;
 }
