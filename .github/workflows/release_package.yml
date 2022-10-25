@@ -8,10 +8,10 @@ on:
         required: true
         description: 'Release type (one of)'
         options:
+          - prerelease
           - prepatch
           - preminor
           - premajor
-          - prerelease
           - 'hotfix'
           - 'minor'
           - 'major'
