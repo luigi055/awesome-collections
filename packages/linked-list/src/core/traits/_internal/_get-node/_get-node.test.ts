@@ -1,8 +1,8 @@
 import { expect, it } from 'vitest';
 
-import { RawLinkedList } from '../../../../raw-linked-list';
-import { LinkedListNode } from '../../../../linked-list-node';
-import { push } from '../push';
+import { RawLinkedList } from '../../../raw-linked-list';
+import { LinkedListNode } from '../../../linked-list-node';
+import { push } from '../../basic-linked-list/definitions/push';
 import { _getNode } from './_get-node';
 
 it('should return undefined if try to get an element from an empty linked list', () => {

@@ -2,6 +2,7 @@ import type { DoublyLinkedList } from './types';
 import { RawLinkedList } from '../core/raw-linked-list';
 import * as iterable from '../core/traits/iterable';
 import * as basicLinkedList from '../core/traits/basic-linked-list';
+import { slice, Sliceable } from '../core/traits/Sliceable';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -83,5 +84,20 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
 
   public clear() {
     return basicLinkedList.clear(this.#rawLinkedList);
+  }
+
+  public slice(
+    start = 0,
+    end: number = this.#rawLinkedList.length
+  ): LinkedList<T> {
+    const newLinkedList = new LinkedList<T>();
+    const addValue = (currentValue: T) => newLinkedList.push(currentValue);
+    slice(this.#rawLinkedList, addValue, start, end);
+
+    return newLinkedList;
+  }
+
+  public copy(): LinkedList<T> {
+    return this.slice();
   }
 }

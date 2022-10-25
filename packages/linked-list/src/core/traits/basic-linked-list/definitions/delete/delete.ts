@@ -1,5 +1,5 @@
 import { LinkedListDataStructure } from '../../../../raw-linked-list';
-import { _getNode } from '../_get-node';
+import { _getNode } from '../../../_internal/_get-node';
 import { pop } from '../pop';
 import { shift } from '../shift';
 

@@ -1,5 +1,5 @@
-import { DoublyLinkedListNode } from '../../../../linked-list-node';
-import { LinkedListDataStructure } from '../../../../raw-linked-list';
+import { DoublyLinkedListNode } from '../../../linked-list-node';
+import { LinkedListDataStructure } from '../../../raw-linked-list';
 
 /**
  * Returns a specified Node from the linked list..
