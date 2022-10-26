@@ -1,7 +1,7 @@
 import { LinkedListDataStructure } from '../../../../raw-linked-list';
 import { _getNode } from '../../../_internal/_get-node';
 
-export function indexof<T = any>(
+export function indexOf<T = any>(
   rawLinkedList: LinkedListDataStructure,
   searchElement: T,
   fromIndex = 0

@@ -107,7 +107,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public indexOf<T = any>(searchElement: T, fromIndex = 0): number {
-    return searchable.indexof(this.#rawLinkedList, searchElement, fromIndex);
+    return searchable.indexOf(this.#rawLinkedList, searchElement, fromIndex);
   }
 
   public lastIndexOf(searchElement: T, fromIndex = this.size - 1): number {

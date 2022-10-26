@@ -1,5 +1,5 @@
 export type { Searchable } from './types';
 
 export { at } from './definitions/at';
-export { indexof } from './definitions/indexof';
+export { indexOf } from './definitions/index-of';
 export { lastIndexOf } from './definitions/last-index-of';
