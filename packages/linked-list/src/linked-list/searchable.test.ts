@@ -80,3 +80,26 @@ describe('Testing the indexof method', () => {
     expect(linkedList.indexOf(6, -5)).toBe(-1);
   });
 });
+
+describe('Testing the lastIndexOf method', () => {
+  it('should return -1 when looking for the last index of the value of an empty linked list', () => {
+    const linkedList = new LinkedList();
+
+    expect(linkedList.lastIndexOf(0)).toBe(-1);
+  });
+
+  it('should find the last index of a specific value inside the linkedlist', () => {
+    const linkedList = new LinkedList([6, 3, 6, 4, 1]);
+
+    expect(linkedList.lastIndexOf(0)).toBe(-1);
+    expect(linkedList.lastIndexOf(4)).toBe(3);
+    expect(linkedList.lastIndexOf(6)).toBe(2);
+  });
+
+  it('should find the last index of a specific value starting from an specified index', () => {
+    const linkedList = new LinkedList([1, 4, 2, 3, 6, 1, 3, 4]);
+
+    expect(linkedList.lastIndexOf(1, 4)).toBe(0);
+    expect(linkedList.lastIndexOf(1, 5)).toBe(5);
+  });
+});
