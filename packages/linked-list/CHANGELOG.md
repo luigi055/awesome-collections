@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.2...awesome-collections-linked-list@0.0.3) (2022-10-26)
+
+### Bug Fixes
+
+- **linked-list:** fix infinity loop when calling the get method without arguments ([8731a2c](https://github.com/luigi055/awesome-collections/commit/8731a2cc47d193501eba9ac15cc74c598ccc4fed))
+
 ## [0.0.2](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.2-alpha.0...awesome-collections-linked-list@0.0.2) (2022-10-26)
 
 ### Bug Fixes
