@@ -49,3 +49,34 @@ describe('Testing the at method', () => {
     expect(linkedList.at(-6)).toBe(undefined);
   });
 });
+
+describe('Testing the indexof method', () => {
+  it('should return -1 when look for the index of a value an empty linked list', () => {
+    const linkedList = new LinkedList();
+
+    expect(linkedList.indexOf(0)).toBe(-1);
+  });
+
+  it('should find the index of a specific value inside the linkedlist', () => {
+    const linkedList = new LinkedList([6, 3, 6, 4, 1]);
+
+    expect(linkedList.indexOf(0)).toBe(-1);
+    expect(linkedList.indexOf(4)).toBe(3);
+    expect(linkedList.indexOf(6)).toBe(0);
+  });
+
+  it('should start looking for the index from a specific index', () => {
+    const linkedList = new LinkedList([6, 3, 6, 4, 1, 3]);
+
+    expect(linkedList.indexOf(6, 1)).toBe(2);
+    expect(linkedList.indexOf(3, 3)).toBe(5);
+  });
+
+  it('should always return -1 when the second parameter is less than 0', () => {
+    const linkedList = new LinkedList([6, 3, 6, 4, 1]);
+
+    expect(linkedList.indexOf(1, -2)).toBe(-1);
+    expect(linkedList.indexOf(4, -3)).toBe(-1);
+    expect(linkedList.indexOf(6, -5)).toBe(-1);
+  });
+});

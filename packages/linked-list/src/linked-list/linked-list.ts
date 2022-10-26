@@ -105,4 +105,8 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   public at(index: number) {
     return searchable.at(this.#rawLinkedList, index);
   }
+
+  public indexOf<T = any>(searchElement: T, fromIndex = 0): number {
+    return searchable.indexof(this.#rawLinkedList, searchElement, fromIndex);
+  }
 }

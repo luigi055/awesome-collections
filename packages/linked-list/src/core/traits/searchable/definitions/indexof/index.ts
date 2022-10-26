@@ -1,0 +1,1 @@
+export { indexof } from './indexof';
