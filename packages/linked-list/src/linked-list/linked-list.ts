@@ -2,7 +2,8 @@ import type { DoublyLinkedList } from './types';
 import { RawLinkedList } from '../core/raw-linked-list';
 import * as iterable from '../core/traits/iterable';
 import * as basicLinkedList from '../core/traits/basic-linked-list';
-import { slice, Sliceable } from '../core/traits/Sliceable';
+import { slice } from '../core/traits/Sliceable';
+import * as searchable from '../core/traits/searchable';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -99,5 +100,9 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
 
   public copy(): LinkedList<T> {
     return this.slice();
+  }
+
+  public at(index: number) {
+    return searchable.at(this.#rawLinkedList, index);
   }
 }
