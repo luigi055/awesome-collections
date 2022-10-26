@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.2-alpha.0...awesome-collections-linked-list@0.0.2) (2022-10-26)
+
+### Bug Fixes
+
+- **linked-list:** define public package\'s api ([08083bd](https://github.com/luigi055/awesome-collections/commit/08083bde11f70417254fdbf3b9409ab176f3a471))
+
+### Features
+
+- **linked-list:** implement clear method in the linked list ([6213825](https://github.com/luigi055/awesome-collections/commit/62138255a2a906e53d893cbffa7ed6e9d4751f71))
+- **linked-list:** implementing the sliceable trait ([d2938b6](https://github.com/luigi055/awesome-collections/commit/d2938b6f4649440631a56ef734b34662840cb775))
+
 ## 0.0.2-alpha.0 (2022-10-25)
 
 ### Features
