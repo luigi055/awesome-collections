@@ -117,4 +117,8 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
       fromIndex
     );
   }
+
+  public includes<T>(searchElement: T, fromIndex = 0): boolean {
+    return searchable.includes(this.#rawLinkedList, searchElement, fromIndex);
+  }
 }

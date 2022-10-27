@@ -10,7 +10,7 @@ export interface Searchable<T> {
    * @param searchElement The value to locate in the linked list.
    * @param fromIndex The linked list index at which to begin the search. If fromIndex is omitted, the search starts at index 0.
    */
-  indexOf(searchElement: T, fromIndex?: number): number;
+  indexOf(searchElement: T, fromIndex: number): number;
 
   /**
    * Returns the index of the last occurrence of a specified value in an Linked List, or -1 if it is not present.
@@ -18,4 +18,11 @@ export interface Searchable<T> {
    * @param fromIndex The Linked List index at which to begin searching backward. If fromIndex is omitted, the search starts at the last index in the LinkedList.
    */
   lastIndexOf(searchElement: T, fromIndex: number): number;
+
+  /**
+   * Determines whether an linked list includes a certain element, returning true or false as appropriate.
+   * @param searchElement The element to search for.
+   * @param fromIndex The position in this linked list at which to begin searching for searchElement.
+   */
+  includes<T>(searchElement: T, fromIndex: number): boolean;
 }

@@ -103,3 +103,26 @@ describe('Testing the lastIndexOf method', () => {
     expect(linkedList.lastIndexOf(1, 5)).toBe(5);
   });
 });
+
+describe('Testing the includes method', () => {
+  it('should return false when look for a value in an empty linked list', () => {
+    const linkedList = new LinkedList<number>();
+
+    expect(linkedList.includes(0)).toBe(false);
+  });
+
+  it('should check if a value is inside the linkedlist', () => {
+    const linkedList = new LinkedList([6, 3, 6, 4, 1]);
+
+    expect(linkedList.includes(0)).toBe(false);
+    expect(linkedList.includes(4)).toBe(true);
+  });
+
+  it('should check if a value in inside the linkedlist starting from an specific index', () => {
+    const linkedList = new LinkedList([6, 4, 3, 6, 1]);
+
+    expect(linkedList.includes(0, 0)).toBe(false);
+    expect(linkedList.includes(4, 2)).toBe(false);
+    expect(linkedList.includes(4, 1)).toBe(true);
+  });
+});
