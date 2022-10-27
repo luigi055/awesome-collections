@@ -126,3 +126,40 @@ describe('Testing the includes method', () => {
     expect(linkedList.includes(4, 1)).toBe(true);
   });
 });
+
+describe('Testing the find method', () => {
+  it('should return undefined when trying to find an element inside an empty linked list', () => {
+    const linkedlist = new LinkedList();
+
+    expect(
+      linkedlist.find((value) => {
+        return value === 100;
+      })
+    ).toBe(undefined);
+  });
+
+  it('should return undefined then invoking the find function but the test function never met the condition', () => {
+    const linkedlist = new LinkedList([4, 6, 2, 34, 8, 3, 1, 3]);
+
+    expect(
+      linkedlist.find((value) => {
+        return value === 100;
+      })
+    ).toBe(undefined);
+  });
+
+  it('should return the value inside a linkedlist using the find method when the condition is met', () => {
+    const linkedlist = new LinkedList([4, 6, 2, 34, 8, 3, 1, 3]);
+
+    expect(
+      linkedlist.find((value, index, obj) => {
+        if (index === 7 && obj === linkedlist) {
+          // Look for the number 3 at the seventh position
+          return value === 3;
+        } else {
+          return false;
+        }
+      })
+    ).toBe(3);
+  });
+});

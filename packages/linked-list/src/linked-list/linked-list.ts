@@ -121,4 +121,25 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   public includes<T>(searchElement: T, fromIndex = 0): boolean {
     return searchable.includes(this.#rawLinkedList, searchElement, fromIndex);
   }
+
+  public find<S extends T>(
+    predicate: (
+      this: void,
+      value: T,
+      index: number,
+      obj: LinkedList<T>
+    ) => value is S,
+    thisArg?: any
+  ): S | undefined;
+  public find(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => unknown,
+    thisArg?: any
+  ): T | undefined;
+  public find(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => boolean,
+    thisArg?: any
+  ) {
+    const find = searchable.findValue.bind(this);
+    return find<T>(this.#rawLinkedList, predicate, thisArg)[1];
+  }
 }
