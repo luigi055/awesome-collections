@@ -4,6 +4,7 @@ import * as iterable from '../core/traits/iterable';
 import * as basicLinkedList from '../core/traits/basic-linked-list';
 import { slice } from '../core/traits/Sliceable';
 import * as searchable from '../core/traits/searchable';
+import * as indexable from '../core/traits/indexable';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -103,19 +104,15 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public at(index: number) {
-    return searchable.at(this.#rawLinkedList, index);
+    return indexable.at(this.#rawLinkedList, index);
   }
 
   public indexOf<T = any>(searchElement: T, fromIndex = 0): number {
-    return searchable.indexOf(this.#rawLinkedList, searchElement, fromIndex);
+    return indexable.indexOf(this.#rawLinkedList, searchElement, fromIndex);
   }
 
   public lastIndexOf(searchElement: T, fromIndex = this.size - 1): number {
-    return searchable.lastIndexOf(
-      this.#rawLinkedList,
-      searchElement,
-      fromIndex
-    );
+    return indexable.lastIndexOf(this.#rawLinkedList, searchElement, fromIndex);
   }
 
   public includes<T>(searchElement: T, fromIndex = 0): boolean {
