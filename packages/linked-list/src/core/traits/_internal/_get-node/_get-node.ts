@@ -9,7 +9,12 @@ export function _getNode<T = any>(
   rawLinkedList: LinkedListDataStructure,
   index: number
 ): DoublyLinkedListNode<T> | undefined {
-  if (index < 0 || index >= rawLinkedList.length || index == undefined)
+  if (
+    index < 0 ||
+    index >= rawLinkedList.length ||
+    index == undefined ||
+    typeof index !== 'number'
+  )
     return undefined;
   let count;
   let current;

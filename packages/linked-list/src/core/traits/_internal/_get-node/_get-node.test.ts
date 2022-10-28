@@ -5,6 +5,24 @@ import { LinkedListNode } from '../../../linked-list-node';
 import { push } from '../../basic-linked-list/definitions/push';
 import { _getNode } from './_get-node';
 
+it('should return undefined when using vanilla javascript and the index argument is ignored', () => {
+  const linkedList = new RawLinkedList<number>();
+
+  expect(linkedList.length).toBe(0);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore -- return undefined when using vanila javascript and the second argument is ignored
+  expect(_getNode(linkedList)).toBe(undefined);
+});
+
+it('should return undefined when using vanilla javascript and the index argument is not a number', () => {
+  const linkedList = new RawLinkedList<number>();
+
+  expect(linkedList.length).toBe(0);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore -- return undefined when using vanila javascript and the second argument is ignored
+  expect(_getNode(linkedList, 'hello')).toBe(undefined);
+});
+
 it('should return undefined if try to get an element from an empty linked list', () => {
   const rawLinkedlist = new RawLinkedList<number>();
 
