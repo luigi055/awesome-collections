@@ -189,3 +189,25 @@ describe('Testing the find method', () => {
     ).toBe(7);
   });
 });
+
+describe('Testing the some method', () => {
+  it('should return false when trying to check if some values are in an empty linked list', () => {
+    const ll = new LinkedList();
+
+    expect(ll.some((value) => value === 3 || value === 5)).toBe(false);
+  });
+
+  it('should return true if the condition function returns true', () => {
+    const ll = new LinkedList([1, 5, 2, 7]);
+
+    expect(
+      ll.some((value, index) => index === 1 && (value === 3 || value === 5))
+    ).toBe(true);
+  });
+
+  it("should return false if the condition function doesn't met the condition", () => {
+    const ll = new LinkedList([1, 5, 2, 7]);
+
+    expect(ll.some((value) => value === 10)).toBe(false);
+  });
+});

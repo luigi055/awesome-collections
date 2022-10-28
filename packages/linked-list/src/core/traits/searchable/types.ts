@@ -64,4 +64,17 @@ export interface Searchable<T> {
     predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
     thisArg?: any
   ): number;
+
+  /**
+   * Determines whether the specified callback function returns true for any element of an linked list.
+   * @param predicate A function that accepts up to three arguments. The some method calls
+   * the predicate function for each element in the linked list until the predicate returns a value
+   * which is coercible to the Boolean value true, or until the end of the linked list.
+   * @param thisArg An object to which the this keyword can refer in the predicate function.
+   * If thisArg is omitted, undefined is used as the this value.
+   */
+  some(
+    cb: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
+    thisArg?: any
+  ): boolean;
 }
