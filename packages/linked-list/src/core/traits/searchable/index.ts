@@ -5,4 +5,3 @@ export { indexOf } from './definitions/index-of';
 export { lastIndexOf } from './definitions/last-index-of';
 export { includes } from './definitions/includes';
 export { findValue } from './definitions/find-value';
-export { find } from './definitions/find';
