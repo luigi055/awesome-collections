@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4-alpha.0](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.3...awesome-collections-linked-list@0.0.4-alpha.0) (2022-10-28)
+
+### Bug Fixes
+
+- **linked-list:** rename internal implementation of indexof -> indexOf ([73ef657](https://github.com/luigi055/awesome-collections/commit/73ef657276db59bcad789ba1baba0d99813f5446))
+
+### Features
+
+- **linked-list:** implements the at method ([854bf14](https://github.com/luigi055/awesome-collections/commit/854bf140a05a246ec682b04742d5dd05a82854d3))
+- **linked-list:** implements the every method defined by the searchable trait ([52bc299](https://github.com/luigi055/awesome-collections/commit/52bc2996984c5c706dd5c7d4257da9a41032c11e))
+- **linked-list:** implements the find method defined by the searchable trait ([2df010d](https://github.com/luigi055/awesome-collections/commit/2df010d631de0094dc711f25a7b24e18cd478445))
+- **linked-list:** implements the findIndex method defined by the searchable trait ([9caf45c](https://github.com/luigi055/awesome-collections/commit/9caf45cd87c64cc2d9b81f0257b173194449318b))
+- **linked-list:** implements the includes method defined by the searchable trait ([5fa7b2b](https://github.com/luigi055/awesome-collections/commit/5fa7b2b4ed58c2c27d6853e15ed2dc4725fb9b64))
+- **linked-list:** implements the indexof method defined by the searchable trait ([fa47034](https://github.com/luigi055/awesome-collections/commit/fa47034fa433fb0e4b74af94f4c9cccb3d4bb05a))
+- **linked-list:** implements the lastIndexOf method defined by the searchable trait ([2121315](https://github.com/luigi055/awesome-collections/commit/21213151c6f62c89c1e836a36327c4075a8a5af1))
+- **linked-list:** implements the some method defined by the searchable trait ([371c178](https://github.com/luigi055/awesome-collections/commit/371c178f140d7f85a3dd34a310b8c8eef743aa8a))
+
 ## [0.0.3](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.2...awesome-collections-linked-list@0.0.3) (2022-10-26)
 
 ### Bug Fixes
