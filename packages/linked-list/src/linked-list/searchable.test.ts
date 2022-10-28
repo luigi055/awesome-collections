@@ -162,7 +162,9 @@ describe('Testing the find method', () => {
       })
     ).toBe(3);
   });
+});
 
+describe('Testing the findIndex method', () => {
   it('should return -1 when trying to find an element inside an empty linkedlist using the findIndex method', () => {
     const ll = new LinkedList();
     expect(ll.findIndex((value) => value === 100)).toBe(-1);
