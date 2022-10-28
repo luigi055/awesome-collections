@@ -142,4 +142,12 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     const find = searchable.findValue.bind(this);
     return find<T>(this.#rawLinkedList, predicate, thisArg)[1];
   }
+
+  public findIndex(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => boolean,
+    thisArg?: any
+  ): number {
+    const find = searchable.findValue.bind(this);
+    return find<T>(this.#rawLinkedList, predicate, thisArg)[0];
+  }
 }

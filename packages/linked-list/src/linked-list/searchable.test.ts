@@ -162,4 +162,30 @@ describe('Testing the find method', () => {
       })
     ).toBe(3);
   });
+
+  it('should return -1 when trying to find an element inside an empty linkedlist using the findIndex method', () => {
+    const ll = new LinkedList();
+    expect(ll.findIndex((value) => value === 100)).toBe(-1);
+  });
+
+  it('should return -1 when trying to find an element inside a linkedlist using the findIndex method', () => {
+    const ll = new LinkedList([4, 6, 2, 34, 8, 3, 1, 3]);
+
+    expect(ll.findIndex((value) => value === 100)).toBe(-1);
+  });
+
+  it('should return the index of the element which met the condition using findIndex method', () => {
+    const ll = new LinkedList([4, 6, 2, 34, 8, 3, 1, 3]);
+
+    expect(
+      ll.findIndex((value, index, obj) => {
+        if (index === 7 && obj === ll) {
+          // Look for the number 3 at the seventh position
+          return value === 3;
+        } else {
+          return false;
+        }
+      })
+    ).toBe(7);
+  });
 });

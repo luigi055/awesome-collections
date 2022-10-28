@@ -50,4 +50,18 @@ export interface Searchable<T> {
     predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => unknown,
     thisArg?: any
   ): T | undefined;
+
+  /**
+   * Returns the index of the first element in the linked list where predicate is true, and -1
+   * otherwise.
+   * @param predicate find calls predicate once for each element of the linked list, in ascending
+   * order, until it finds one where predicate returns true. If such an element is found,
+   * findIndex immediately returns that element index. Otherwise, findIndex returns -1.
+   * @param thisArg If provided, it will be used as the this value for each invocation of
+   * predicate. If it is not provided, undefined is used instead.
+   */
+  findIndex(
+    predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
+    thisArg?: any
+  ): number;
 }
