@@ -1,6 +1,7 @@
 import { LinkedListDataStructure } from '../../../../raw-linked-list';
 import { values } from '../../../iterable';
 
+// Used to implements the find. findIndex and some functions
 export function findValue<T = any, This = any>(
   this: This,
   rawLinkedList: LinkedListDataStructure<T>,

@@ -157,4 +157,21 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   ): boolean {
     return this.findIndex(cb, thisArg) > -1;
   }
+
+  public every<S extends T>(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => value is S,
+    thisArg?: any
+  ): this is LinkedList<S>;
+  public every(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => unknown,
+    thisArg?: any
+  ): boolean;
+  public every(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => boolean,
+    thisArg?: any
+  ): boolean {
+    const every = searchable.every.bind(this);
+
+    return every<T>(this.#rawLinkedList, predicate, thisArg);
+  }
 }

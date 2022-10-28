@@ -77,4 +77,29 @@ export interface Searchable<T> {
     cb: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
     thisArg?: any
   ): boolean;
+
+  /**
+   * Determines whether all the members of an linked list satisfy the specified test.
+   * @param predicate A function that accepts up to three arguments. The every method calls
+   * the predicate function for each element in the linked list until the predicate returns a value
+   * which is coercible to the Boolean value false, or until the end of the linked list.
+   * @param thisArg An object to which the this keyword can refer in the predicate function.
+   * If thisArg is omitted, undefined is used as the this value.
+   */
+  every<S extends T>(
+    predicate: (
+      value: T,
+      index: number,
+      obj: DoublyLinkedList<T>
+    ) => value is S,
+    thisArg?: any
+  ): this is DoublyLinkedList<S>;
+  every(
+    predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => unknown,
+    thisArg?: any
+  ): boolean;
+  every(
+    predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
+    thisArg?: any
+  ): boolean;
 }
