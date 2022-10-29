@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { LinkedList } from './linked-list';
+import { LinkedList } from '../linked-list';
 
 describe('Copying the linkedlist', () => {
   it('should copy an empty linkedlist with slice', () => {

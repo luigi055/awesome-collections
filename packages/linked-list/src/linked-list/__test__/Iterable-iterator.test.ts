@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { LinkedList } from './linked-list';
+import { LinkedList } from '../linked-list';
 
 describe('Linked list is IterableIterator', () => {
   it('should create an initialize an linked list from an iterable', () => {

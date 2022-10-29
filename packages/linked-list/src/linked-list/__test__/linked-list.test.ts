@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { LinkedList } from './linked-list';
+import { LinkedList } from '../linked-list';
 
 describe('testing static functions', () => {
   it('should check if the element is a linked list', () => {

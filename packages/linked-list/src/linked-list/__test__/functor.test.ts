@@ -1,4 +1,4 @@
-import { LinkedList } from './linked-list';
+import { LinkedList } from '../linked-list';
 import { describe, it, expect } from 'vitest';
 
 describe('Testing the map function', () => {
