@@ -2,10 +2,11 @@ import type { DoublyLinkedList } from './types';
 import { RawLinkedList } from '../core/raw-linked-list';
 import * as iterable from '../core/traits/iterable';
 import * as basicLinkedList from '../core/traits/basic-linked-list';
-import { slice } from '../core/traits/Sliceable';
 import * as searchable from '../core/traits/searchable';
 import * as indexable from '../core/traits/indexable';
 import * as functor from '../core/traits/functor';
+import { slice } from '../core/traits/Sliceable';
+import { forEach } from '../core/traits/for-each';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -83,6 +84,13 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
 
   public insert(index: number, value: T) {
     return basicLinkedList.insert<T>(this.#rawLinkedList, index, value);
+  }
+
+  public forEach(
+    callbackfn: (value: T, index: number, linkedList: LinkedList<T>) => void,
+    thisArg?: any
+  ): void {
+    forEach.bind(this)<T>(this.#rawLinkedList, callbackfn, thisArg);
   }
 
   public clear() {
