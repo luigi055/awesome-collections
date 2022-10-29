@@ -5,6 +5,7 @@ import * as basicLinkedList from '../core/traits/basic-linked-list';
 import { slice } from '../core/traits/Sliceable';
 import * as searchable from '../core/traits/searchable';
 import * as indexable from '../core/traits/indexable';
+import * as functor from '../core/traits/functor';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -170,5 +171,21 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     const every = searchable.every.bind(this);
 
     return every<T>(this.#rawLinkedList, predicate, thisArg);
+  }
+
+  map<U>(
+    callbackfn: (
+      value: T,
+      index?: number | undefined,
+      linkedList?: DoublyLinkedList<T> | undefined
+    ) => U,
+    thisArg?: any
+  ): DoublyLinkedList<U> {
+    const newLinkedList = new LinkedList<U>();
+    const addValue = (currentValue: U) => newLinkedList.push(currentValue);
+    const map = functor.map.bind(this);
+    map<T, U>(this.#rawLinkedList, addValue, callbackfn, thisArg);
+
+    return newLinkedList;
   }
 }
