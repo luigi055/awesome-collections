@@ -4,7 +4,7 @@ import { _getNode } from '../../../_internal/_get-node';
 export function slice<T = any>(
   rawLinkedList: LinkedListDataStructure<T>,
   updateCallback: (currentValue: T) => void,
-  start = 0,
+  start: number,
   end: number
 ): void {
   const initialElement = _getNode(rawLinkedList, start);
