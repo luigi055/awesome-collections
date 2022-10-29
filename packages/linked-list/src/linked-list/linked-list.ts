@@ -7,6 +7,7 @@ import * as indexable from '../core/traits/indexable';
 import * as functor from '../core/traits/functor';
 import { slice } from '../core/traits/Sliceable';
 import { forEach } from '../core/traits/for-each';
+import * as filterable from '../core/traits/filterable';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -195,5 +196,25 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     map<T, U>(this.#rawLinkedList, addValue, callbackfn, thisArg);
 
     return newLinkedList;
+  }
+
+  public filter<S extends T>(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => value is S,
+    thisArg?: any
+  ): LinkedList<S>;
+  public filter(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => unknown,
+    thisArg?: any
+  ): LinkedList<T>;
+  public filter(
+    predicate: (value: T, index: number, obj: LinkedList<T>) => boolean,
+    thisArg?: any
+  ): LinkedList<T> {
+    const result = new LinkedList<T>();
+    const addValue = (currentValue: T) => result.push(currentValue);
+    const filter = filterable.filter.bind(this);
+    filter<T>(this.#rawLinkedList, addValue, predicate, thisArg);
+
+    return result;
   }
 }

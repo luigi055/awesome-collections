@@ -1,3 +1,4 @@
+import { Filterable } from './../core/traits/filterable/type';
 import { ForEach } from './../core/traits/for-each/type';
 import { Searchable } from './../core/traits/searchable/types';
 import { BasicLinkedList } from '../core/traits/basic-linked-list';
@@ -12,4 +13,5 @@ export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   Searchable<T> &
   Indexable<T> &
   Functor<T> &
-  ForEach<T>;
+  ForEach<T> &
+  Filterable<T>;
