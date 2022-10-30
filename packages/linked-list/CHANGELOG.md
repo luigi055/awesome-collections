@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4-alpha.2](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.1...awesome-collections-linked-list@0.0.4-alpha.2) (2022-10-29)
+
+### Features
+
+- **linked-list:** implements the filter method defined by the Filterable trait ([b725035](https://github.com/luigi055/awesome-collections/commit/b725035c08cd93cccef409e4d63c00fee1b29aac))
+- **linked-list:** implements the forEach method defined by the ForEach trait ([bffe784](https://github.com/luigi055/awesome-collections/commit/bffe784f19382b8dc39a6d527d4924c6e73561bf))
+- **linked-list:** implements the map method defined by the functor trait ([a9bad7f](https://github.com/luigi055/awesome-collections/commit/a9bad7ffa2cca641c5a959d433d93f7ffc262d15))
+
 ## [0.0.4-alpha.1](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.0...awesome-collections-linked-list@0.0.4-alpha.1) (2022-10-28)
 
 ### Bug Fixes
