@@ -9,6 +9,7 @@ import { slice } from '../core/traits/Sliceable';
 import { forEach } from '../core/traits/for-each';
 import * as filterable from '../core/traits/filterable';
 import * as sortable from '../core/traits/sortable';
+import * as reducible from '../core/traits/reducible';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -223,5 +224,47 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     sortable.sort<T>(this.#rawLinkedList, compareFn);
 
     return this;
+  }
+
+  public reduce(
+    callbackfn: (
+      previousValue: T,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => T
+  ): T;
+  public reduce(
+    callbackfn: (
+      previousValue: T,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => T,
+    initialValue: T
+  ): T;
+  public reduce<U>(
+    callbackfn: (
+      previousValue: U,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => U,
+    initialValue: U
+  ): U;
+  public reduce<U>(
+    callbackfn: (
+      previousValue: U | T,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => U | T,
+    initialValue?: U | T
+  ): U | T {
+    const reduce = reducible.reduce.bind(this);
+    if (arguments.length === 1) {
+      return reduce<T, U>(this.#rawLinkedList, callbackfn);
+    }
+    return reduce<T, U>(this.#rawLinkedList, callbackfn, initialValue);
   }
 }
