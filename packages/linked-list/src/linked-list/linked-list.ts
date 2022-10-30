@@ -8,6 +8,7 @@ import * as functor from '../core/traits/functor';
 import { slice } from '../core/traits/Sliceable';
 import { forEach } from '../core/traits/for-each';
 import * as filterable from '../core/traits/filterable';
+import * as sortable from '../core/traits/sortable';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -216,5 +217,11 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     filter<T>(this.#rawLinkedList, addValue, predicate, thisArg);
 
     return result;
+  }
+
+  sort(compareFn?: ((a: T, b: T) => number) | undefined): this {
+    sortable.sort<T>(this.#rawLinkedList, compareFn);
+
+    return this;
   }
 }

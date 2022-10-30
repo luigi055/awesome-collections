@@ -6,6 +6,7 @@ import { IterableDataStructure } from '../core/traits/iterable/types';
 import { Sliceable } from '../core/traits/Sliceable';
 import { Indexable } from '../core/traits/indexable';
 import { Functor } from '../core/traits/functor';
+import { Sortable } from '../core/traits/sortable';
 
 export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   IterableDataStructure<T> &
@@ -14,4 +15,5 @@ export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   Indexable<T> &
   Functor<T> &
   ForEach<T> &
-  Filterable<T>;
+  Filterable<T> &
+  Sortable<T>;
