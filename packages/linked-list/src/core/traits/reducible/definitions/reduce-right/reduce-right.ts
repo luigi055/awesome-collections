@@ -1,7 +1,7 @@
 import { LinkedListDataStructure } from '../../../../raw-linked-list';
-import { forEach } from '../../../for-each';
+import { forEachReverse } from '../../../for-each';
 
-export function reduce<T, U = any, This = any>(
+export function reduceRight<T, U = any, This = any>(
   this: This,
   rawLinkedList: LinkedListDataStructure,
   callbackfn: (
@@ -16,9 +16,10 @@ export function reduce<T, U = any, This = any>(
   if (rawLinkedList.length === 0 && isInitialValueMissing) {
     throw new TypeError('Reduce of empty linked list with no initial value');
   }
+
   let currentPreviousValue = initialValue;
 
-  forEach<T>(rawLinkedList, (value, index) => {
+  forEachReverse<T>(rawLinkedList, (value, index) => {
     if (!currentPreviousValue && isInitialValueMissing) {
       currentPreviousValue = value;
       return;

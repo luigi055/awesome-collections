@@ -267,4 +267,46 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     }
     return reduce<T, U>(this.#rawLinkedList, callbackfn, initialValue);
   }
+
+  public reduceRight(
+    callbackfn: (
+      previousValue: T,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => T
+  ): T;
+  public reduceRight(
+    callbackfn: (
+      previousValue: T,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => T,
+    initialValue: T
+  ): T;
+  public reduceRight<U>(
+    callbackfn: (
+      previousValue: U,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => U,
+    initialValue: U
+  ): U;
+  public reduceRight<U>(
+    callbackfn: (
+      previousValue: U | T,
+      currentValue: T,
+      currentIndex: number,
+      LinkedList: LinkedList<T>
+    ) => U | T,
+    initialValue?: U | T
+  ): U | T {
+    const reduceRight = reducible.reduceRight.bind(this);
+    if (arguments.length === 1) {
+      return reduceRight<T, U>(this.#rawLinkedList, callbackfn);
+    }
+    return reduceRight<T, U>(this.#rawLinkedList, callbackfn, initialValue);
+  }
 }

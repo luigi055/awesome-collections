@@ -84,3 +84,60 @@ describe('Testing the reduce method', () => {
     expect(reducedLL).toEqual(165);
   });
 });
+
+describe('Testing the reduceRight method', () => {
+  it('should throw a TypeError when the LinkedList is empty and the initial value is not passed in when reducing from tail', () => {
+    const ll = new LinkedList<number>();
+
+    expect(() =>
+      ll.reduceRight(
+        (previousValue, currentValue) => previousValue + currentValue
+      )
+    ).toThrow('Reduce of empty linked list with no initial value');
+  });
+
+  it('should return the initial value when reducing an empty linkedlist from tail', () => {
+    const ll = new LinkedList<number>();
+
+    const reducedLL = ll.reduceRight(
+      (previousValue, currentValue) => previousValue + currentValue,
+      100
+    );
+
+    expect(reducedLL).toBe(100);
+  });
+
+  it('should reduce the linked list from the tail', () => {
+    const ll = new LinkedList(['juana', 'maria', 'carmen', 'teresa']);
+
+    const reducedLL = ll.reduceRight(
+      (a, b, index) => a + ', ' + b + ' ' + index
+    );
+
+    expect(reducedLL).toEqual('teresa, carmen 2, maria 1, juana 0');
+  });
+
+  it('should reduce the linked list from the tail passing in an initial value', () => {
+    const ll = new LinkedList(['juana', 'maria', 'carmen', 'teresa']);
+
+    const reducedLL = ll.reduceRight(
+      (a, b, index) => a + ', ' + b + ' ' + index,
+      ''
+    );
+
+    expect(reducedLL).toEqual(', teresa 3, carmen 2, maria 1, juana 0');
+  });
+
+  it('should not ignore undefined or void values', () => {
+    const linkedList = new LinkedList([0, 5, 15, 20, 25, 30]);
+
+    const reducedLL = linkedList.reduceRight((a, b, index, ll) => {
+      if (ll.tail === 30 && index === 5) {
+        return a + 100;
+      }
+      return a + b;
+    });
+
+    expect(reducedLL).toEqual(95);
+  });
+});
