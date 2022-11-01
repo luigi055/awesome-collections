@@ -11,6 +11,7 @@ import * as filterable from '../core/traits/filterable';
 import * as sortable from '../core/traits/sortable';
 import * as reducible from '../core/traits/reducible';
 import * as format from '../core/traits/format';
+import * as reversible from '../core/traits/reversible';
 
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
@@ -316,5 +317,10 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
 
   public toString(): string {
     return format.toString(this.#rawLinkedList);
+  }
+
+  reverse(): this {
+    reversible.reverse.call(this, this.#rawLinkedList);
+    return this;
   }
 }

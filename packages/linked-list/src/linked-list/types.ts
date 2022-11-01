@@ -1,3 +1,4 @@
+import { Reversible } from './../core/traits/reversible/type';
 import { Reducible } from './../core/traits/reducible/type';
 import { Filterable } from './../core/traits/filterable/type';
 import { ForEach } from './../core/traits/for-each/type';
@@ -20,4 +21,5 @@ export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   Filterable<T> &
   Sortable<T> &
   Reducible<T> &
+  Reversible<T> &
   Format;
