@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4-alpha.5](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.4...awesome-collections-linked-list@0.0.4-alpha.5) (2022-11-01)
+
+### Features
+
+- **linked-list:** implements the concat method defined by the concatenate trait ([c05933b](https://github.com/luigi055/awesome-collections/commit/c05933bae35b93d240ce0777e9194515089244f4))
+- **linked-list:** implements the reverse method defined by the reversible trait ([a5b3cf9](https://github.com/luigi055/awesome-collections/commit/a5b3cf90d27c1d1a00fb46954f2e88618da99ed4))
+- **linked-list:** implements the splice method defined by the sliceable trait ([4769707](https://github.com/luigi055/awesome-collections/commit/47697071fdab61807a06d8868e83d90e0910786d))
+
 ## [0.0.4-alpha.4](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.3...awesome-collections-linked-list@0.0.4-alpha.4) (2022-11-01)
 
 ### Features
