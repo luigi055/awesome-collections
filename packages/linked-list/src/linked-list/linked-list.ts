@@ -264,10 +264,9 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     initialValue?: U | T
   ): U | T {
     const reduce = reducible.reduce.bind(this);
-    if (arguments.length === 1) {
-      return reduce<T, U>(this.#rawLinkedList, callbackfn);
-    }
-    return reduce<T, U>(this.#rawLinkedList, callbackfn, initialValue);
+    return arguments.length === 1
+      ? reduce<T, U>(this.#rawLinkedList, callbackfn)
+      : reduce<T, U>(this.#rawLinkedList, callbackfn, initialValue);
   }
 
   public reduceRight(
@@ -306,10 +305,9 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     initialValue?: U | T
   ): U | T {
     const reduceRight = reducible.reduceRight.bind(this);
-    if (arguments.length === 1) {
-      return reduceRight<T, U>(this.#rawLinkedList, callbackfn);
-    }
-    return reduceRight<T, U>(this.#rawLinkedList, callbackfn, initialValue);
+    return arguments.length === 1
+      ? reduceRight<T, U>(this.#rawLinkedList, callbackfn)
+      : reduceRight<T, U>(this.#rawLinkedList, callbackfn, initialValue);
   }
 
   public join(separator = ','): string {
