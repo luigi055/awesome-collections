@@ -10,6 +10,8 @@ import { forEach } from '../core/traits/for-each';
 import * as filterable from '../core/traits/filterable';
 import * as sortable from '../core/traits/sortable';
 import * as reducible from '../core/traits/reducible';
+import * as format from '../core/traits/format';
+
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -308,5 +310,13 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
       return reduceRight<T, U>(this.#rawLinkedList, callbackfn);
     }
     return reduceRight<T, U>(this.#rawLinkedList, callbackfn, initialValue);
+  }
+
+  public join(separator = ','): string {
+    return format.join(this.#rawLinkedList, separator);
+  }
+
+  public toString(): string {
+    return format.toString(this.#rawLinkedList);
   }
 }

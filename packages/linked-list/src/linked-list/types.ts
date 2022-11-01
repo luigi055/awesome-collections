@@ -8,6 +8,7 @@ import { Sliceable } from '../core/traits/Sliceable';
 import { Indexable } from '../core/traits/indexable';
 import { Functor } from '../core/traits/functor';
 import { Sortable } from '../core/traits/sortable';
+import { Format } from '../core/traits/format';
 
 export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   IterableDataStructure<T> &
@@ -18,4 +19,5 @@ export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   ForEach<T> &
   Filterable<T> &
   Sortable<T> &
-  Reducible<T>;
+  Reducible<T> &
+  Format;
