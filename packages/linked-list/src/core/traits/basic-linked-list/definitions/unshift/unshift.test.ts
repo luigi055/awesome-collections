@@ -84,6 +84,6 @@ it('should add 3 elements at the beginning of the linked list', () => {
   expectedRawLinkedList.tail = expectedNodeFive;
   expectedRawLinkedList.length = 5;
 
-  expect(unshift(rawLinkedList, 8, 198, 3)).toBe(3);
+  expect(unshift(rawLinkedList, 8, 198, 3)).toBe(5);
   expect(rawLinkedList).toEqual(expectedRawLinkedList);
 });

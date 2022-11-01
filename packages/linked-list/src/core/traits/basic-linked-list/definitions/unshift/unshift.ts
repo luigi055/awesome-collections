@@ -34,5 +34,5 @@ export function unshift<T = any>(
     unshiftValue(rawLinkedList, item);
   }
 
-  return items.length;
+  return rawLinkedList.length;
 }

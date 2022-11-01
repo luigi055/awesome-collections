@@ -35,5 +35,5 @@ export function push<T = any>(
     pushValue(rawLinkedList, value);
   }
 
-  return items.length;
+  return rawLinkedList.length;
 }

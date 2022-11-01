@@ -72,7 +72,7 @@ describe('Testing basic Linked list methods', () => {
     const expectedLinkedList = new LinkedList<number>();
     expectedLinkedList.push(10, 3, 8, 1, 3, 2, 7);
 
-    expect(linkedList.push(3, 8, 1, 3, 2, 7)).toBe(6);
+    expect(linkedList.push(3, 8, 1, 3, 2, 7)).toBe(7);
     expect(linkedList.size).toBe(7);
 
     expect(linkedList).toEqual(expectedLinkedList);
@@ -229,7 +229,7 @@ describe('Testing basic Linked list methods', () => {
 
     expect(doublyLinkedList.unshift(firstValue)).toBe(1);
     expect(doublyLinkedList.size).toBe(1);
-    expect(doublyLinkedList.unshift('my', 'name', 'is')).toBe(3);
+    expect(doublyLinkedList.unshift('my', 'name', 'is')).toBe(4);
     expect(doublyLinkedList.size).toBe(4);
     expect(doublyLinkedList).toEqual(expectedLinkedList);
   });

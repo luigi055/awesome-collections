@@ -8,7 +8,7 @@ import * as basicLinkedList from '../core/traits/basic-linked-list';
 import * as searchable from '../core/traits/searchable';
 import * as indexable from '../core/traits/indexable';
 import * as functor from '../core/traits/functor';
-import { slice, Sliceable, splice } from '../core/traits/Sliceable';
+import { slice, splice } from '../core/traits/Sliceable';
 import { forEach } from '../core/traits/for-each';
 import * as filterable from '../core/traits/filterable';
 import * as sortable from '../core/traits/sortable';

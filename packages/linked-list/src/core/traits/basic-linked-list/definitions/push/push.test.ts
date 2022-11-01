@@ -83,7 +83,7 @@ it('should add 3 elements at the end of the linked list', () => {
   expectedRawLinkedList.tail = expectedNodeFive;
   expectedRawLinkedList.length = 5;
 
-  expect(push(rawLinkedList, 8, 198, 3)).toBe(3);
+  expect(push(rawLinkedList, 8, 198, 3)).toBe(5);
 
   expect(rawLinkedList).toEqual(expectedRawLinkedList);
 });
