@@ -1,3 +1,4 @@
+import { Concatenate } from './../core/traits/concatenate/type';
 import { Reversible } from './../core/traits/reversible/type';
 import { Reducible } from './../core/traits/reducible/type';
 import { Filterable } from './../core/traits/filterable/type';
@@ -22,4 +23,5 @@ export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   Sortable<T> &
   Reducible<T> &
   Reversible<T> &
+  Concatenate<T> &
   Format;

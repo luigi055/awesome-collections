@@ -12,7 +12,7 @@ import * as sortable from '../core/traits/sortable';
 import * as reducible from '../core/traits/reducible';
 import * as format from '../core/traits/format';
 import * as reversible from '../core/traits/reversible';
-
+import * as concatenate from '../core/traits/concatenate';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -319,8 +319,12 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     return format.toString(this.#rawLinkedList);
   }
 
-  reverse(): this {
+  public reverse(): this {
     reversible.reverse.call(this, this.#rawLinkedList);
     return this;
+  }
+
+  public concat(...items: (LinkedList<T> | T)[]) {
+    return concatenate.concat<T>(this, ...items);
   }
 }
