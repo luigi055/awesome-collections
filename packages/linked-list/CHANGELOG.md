@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4-alpha.4](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.3...awesome-collections-linked-list@0.0.4-alpha.4) (2022-11-01)
+
+### Features
+
+- **linked-list:** implements the join and toString method defined by the Format trait ([c69e0de](https://github.com/luigi055/awesome-collections/commit/c69e0de3fedd01fa10c5f6c68210411a98c5c74c))
+
 ## [0.0.4-alpha.3](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.2...awesome-collections-linked-list@0.0.4-alpha.3) (2022-11-01)
 
 ### Features

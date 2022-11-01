@@ -2,6 +2,13 @@ import { LinkedList } from '../linked-list';
 import { describe, it, expect } from 'vitest';
 
 describe('testing the reverse method', () => {
+  it('should not anything when calling the reverse method on an empty linked list', () => {
+    const ll = new LinkedList();
+
+    expect(ll.size).toBe(0);
+    expect(ll.reverse()).toEqual(new LinkedList());
+    expect(ll).toEqual(new LinkedList());
+  });
   it('should reverse the linked list perfectly when size is even', () => {
     const ll = new LinkedList([5, 2, 3, 4, 1, 2]);
 
