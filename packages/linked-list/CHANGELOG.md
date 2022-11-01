@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4-alpha.3](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.2...awesome-collections-linked-list@0.0.4-alpha.3) (2022-11-01)
+
+### Features
+
+- **linked-list:** add reverse linked list but not implemented in the linked list main ds ([08c1dd9](https://github.com/luigi055/awesome-collections/commit/08c1dd9727dd04e489064bbea7455651717bb190))
+- **linked-list:** implements the reduce method defined by the Reducible trait ([895c5fb](https://github.com/luigi055/awesome-collections/commit/895c5fb89df09af53b9f6c0b07448e38c7daa1af))
+- **linked-list:** implements the reduceRight method defined by the Reducible trait ([6acf5c2](https://github.com/luigi055/awesome-collections/commit/6acf5c25056a3f433919ac772f3f602e9fd44e85))
+- **linked-list:** implements the sort method defined by the sortable trait ([4e03d36](https://github.com/luigi055/awesome-collections/commit/4e03d3612ac9530d9db52e76d26f5aa935e8ac24))
+
 ## [0.0.4-alpha.2](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.1...awesome-collections-linked-list@0.0.4-alpha.2) (2022-10-29)
 
 ### Features
