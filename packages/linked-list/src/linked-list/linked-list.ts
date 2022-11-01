@@ -1,11 +1,14 @@
 import type { DoublyLinkedList } from './types';
-import { RawLinkedList } from '../core/raw-linked-list';
+import {
+  LinkedListDataStructure,
+  RawLinkedList,
+} from '../core/raw-linked-list';
 import * as iterable from '../core/traits/iterable';
 import * as basicLinkedList from '../core/traits/basic-linked-list';
 import * as searchable from '../core/traits/searchable';
 import * as indexable from '../core/traits/indexable';
 import * as functor from '../core/traits/functor';
-import { slice } from '../core/traits/Sliceable';
+import { slice, Sliceable, splice } from '../core/traits/Sliceable';
 import { forEach } from '../core/traits/for-each';
 import * as filterable from '../core/traits/filterable';
 import * as sortable from '../core/traits/sortable';
@@ -31,7 +34,13 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
       }
     }
   }
+  public get rawLinkedList() {
+    return this.#rawLinkedList;
+  }
 
+  public set rawLinkedList(newRawLinkedList: LinkedListDataStructure<T>) {
+    this.#rawLinkedList = newRawLinkedList;
+  }
   public get size() {
     return this.#rawLinkedList.length;
   }
@@ -326,5 +335,15 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
 
   public concat(...items: (LinkedList<T> | T)[]) {
     return concatenate.concat<T>(this, ...items);
+  }
+
+  public splice(start: number, deleteCount?: number): LinkedList<T>;
+  public splice(
+    start: number,
+    deleteCount: number,
+    ...items: T[]
+  ): LinkedList<T>;
+  public splice(start: number, deleteCount = this.size, ...items: T[]) {
+    return splice<T>(this, start, deleteCount, ...items);
   }
 }

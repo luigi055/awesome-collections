@@ -18,4 +18,20 @@ export interface Sliceable<T = any> {
    * this is just a mask for the **shift** method without arguments
    */
   copy(): void;
+
+  /**
+   * Removes elements from a linked list and, if necessary, inserts new elements in their place, returning the deleted elements.
+   * @param start The zero-based location in the linked list from which to start removing elements.
+   * @param deleteCount The number of elements to remove.
+   * @returns An linked list containing the elements that were deleted.
+   */
+  splice(start: number, deleteCount?: number): Sliceable<T>;
+  /**
+   * Removes elements from an linked list and, if necessary, inserts new elements in their place, returning the deleted elements.
+   * @param start The zero-based location in the linked list from which to start removing elements.
+   * @param deleteCount The number of elements to remove.
+   * @param items Elements to insert into the linked list in place of the deleted elements.
+   * @returns A linked list containing the elements that were deleted.
+   */
+  splice(start: number, deleteCount: number, ...items: T[]): Sliceable<T>;
 }

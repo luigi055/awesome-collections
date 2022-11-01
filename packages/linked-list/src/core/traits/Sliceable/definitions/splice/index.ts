@@ -1,0 +1,1 @@
+export { splice } from './splice';
