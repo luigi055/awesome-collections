@@ -16,6 +16,7 @@ import * as reducible from '../core/traits/reducible';
 import * as format from '../core/traits/format';
 import * as reversible from '../core/traits/reversible';
 import * as concatenate from '../core/traits/concatenate';
+import * as flatten from '../core/traits/flatten';
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -345,5 +346,9 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   ): LinkedList<T>;
   public splice(start: number, deleteCount = this.size, ...items: T[]) {
     return splice<T>(this, start, deleteCount, ...items);
+  }
+
+  public flat(depth = 1): LinkedList<T> {
+    return flatten.flat<T>(this, depth);
   }
 }

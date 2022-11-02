@@ -11,6 +11,7 @@ import { Indexable } from '../core/traits/indexable';
 import { Functor } from '../core/traits/functor';
 import { Sortable } from '../core/traits/sortable';
 import { Format } from '../core/traits/format';
+import { Flatten } from '../core/traits/flatten';
 
 export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   IterableDataStructure<T> &
@@ -24,4 +25,5 @@ export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   Reducible<T> &
   Reversible<T> &
   Concatenate<T> &
+  Flatten<T> &
   Format;
