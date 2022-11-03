@@ -17,6 +17,8 @@ import * as format from '../core/traits/format';
 import * as reversible from '../core/traits/reversible';
 import * as concatenate from '../core/traits/concatenate';
 import * as flatten from '../core/traits/flatten';
+import * as fillable from '../core/traits/fillable';
+
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   #rawLinkedList = new RawLinkedList<T>();
 
@@ -362,5 +364,9 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     thisArg?: This
   ): LinkedList<U> {
     return flatten.flatMap<T, U, This>(this, callback, thisArg);
+  }
+
+  public fill(value: T, start = 0, end = this.size): LinkedList<T> {
+    return fillable.fill<T>(this, value, start, end);
   }
 }
