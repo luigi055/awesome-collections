@@ -74,3 +74,50 @@ describe('Testing the flat method', () => {
     );
   });
 });
+
+describe('Testing the flatMap method', () => {
+  it('should only create a new LinkedList when using flatMap with an empty list', () => {
+    const linkedList = new LinkedList();
+    const mappedLL = linkedList.flatMap((x) => [x * 2]);
+    expect(mappedLL).not.toBe(linkedList);
+    expect(mappedLL).toEqual(new LinkedList());
+  });
+
+  it('should map all strings and flatten them using flatMap', () => {
+    const ll = new LinkedList(["it's Sunny in", '', 'California']);
+    expect(ll.flatMap((x) => new LinkedList(x.split(' ')))).toEqual(
+      new LinkedList(["it's", 'Sunny', 'in', '', 'California'])
+    );
+  });
+
+  it('should filter values using flatMap', () => {
+    const linkedList = new LinkedList([6, 2, 4, 1, 7, 3, 9, 4, 7]);
+    const mappedLL = linkedList.flatMap((x) =>
+      x < 5 ? new LinkedList() : new LinkedList([x])
+    );
+    expect(mappedLL).toEqual(new LinkedList([6, 7, 9, 7]));
+  });
+
+  it('should be the equivalent to map + flat with depth = 1', () => {
+    const linkedList = new LinkedList([
+      6,
+      2,
+      4,
+      1,
+      7,
+      3,
+      new LinkedList([9]),
+      4,
+      7,
+    ]);
+    const mappedLL = linkedList.flatMap((x) => {
+      if (LinkedList.isLinkedList(x)) {
+        return x;
+      }
+      return x * 5;
+    });
+    expect(mappedLL).toEqual(
+      new LinkedList([30, 10, 20, 5, 35, 15, 9, 20, 35])
+    );
+  });
+});

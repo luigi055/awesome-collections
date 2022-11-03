@@ -1,4 +1,4 @@
-import { LinkedList } from '../../../../linked-list';
+import { LinkedList } from '../../../../../linked-list';
 
 export function flat<T>(
   linkedList: LinkedList<T>,

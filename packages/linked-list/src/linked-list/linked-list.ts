@@ -351,4 +351,16 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   public flat(depth = 1): LinkedList<T> {
     return flatten.flat<T>(this, depth);
   }
+
+  public flatMap<U, This = undefined>(
+    callback: (
+      this: This,
+      value: T,
+      index?: number,
+      linkedList?: LinkedList<T>
+    ) => U | LinkedList<U>,
+    thisArg?: This
+  ): LinkedList<U> {
+    return flatten.flatMap<T, U, This>(this, callback, thisArg);
+  }
 }
