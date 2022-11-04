@@ -1,7 +1,7 @@
 import { IteratorMethodType } from './types';
 import { DoublyLinkedListNode } from '../../linked-list-node';
 import { LinkedListDataStructure } from '../../raw-linked-list';
-import { Entry } from '../../traits/iterable/types';
+import { Entry } from '../../traits/iterable';
 
 function createNextFn<T>(
   rawLinkedList: LinkedListDataStructure<T>,

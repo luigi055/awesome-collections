@@ -1,4 +1,4 @@
-import { DoublyLinkedList } from './../../../linked-list/types';
+import { DoublyLinkedList } from '../../linked-list/types';
 
 export interface Searchable<T> {
   /**
