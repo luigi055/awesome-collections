@@ -1,17 +1,17 @@
-import { Concatenate } from '../core/traits/concatenate';
-import { Reversible } from '../core/traits/reversible';
-import { Reducible } from '../core/traits/reducible';
-import { Filterable } from '../core/traits/filterable';
-import { ForEach } from '../core/traits/for-each';
-import { Searchable } from '../core/traits/searchable';
 import { BasicLinkedList } from '../core/traits/basic-linked-list';
-import { IterableDataStructure } from '../core/traits/iterable';
-import { Sliceable } from '../core/traits/sliceable';
-import { Indexable } from '../core/traits/indexable';
-import { Functor } from '../core/traits/functor';
-import { Sortable } from '../core/traits/sortable';
-import { Format } from '../core/traits/format';
+import { Concatenate } from '../core/traits/concatenate';
+import { Filterable } from '../core/traits/filterable';
 import { Flatten } from '../core/traits/flatten';
+import { ForEach } from '../core/traits/for-each';
+import { Format } from '../core/traits/format';
+import { Functor } from '../core/traits/functor';
+import { Indexable } from '../core/traits/indexable';
+import { IterableDataStructure } from '../core/traits/iterable';
+import { Reducible } from '../core/traits/reducible';
+import { Reversible } from '../core/traits/reversible';
+import { Searchable } from '../core/traits/searchable';
+import { Sliceable } from '../core/traits/sliceable';
+import { Sortable } from '../core/traits/sortable';
 
 export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   IterableDataStructure<T> &

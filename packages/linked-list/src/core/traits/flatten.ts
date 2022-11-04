@@ -1,3 +1,5 @@
+import { LinkedList } from '../../linked-list';
+
 export interface Flatten<T> {
   /**
    * Returns a new linked list with all sub-linked list elements concatenated into it recursively up to the
@@ -5,7 +7,7 @@ export interface Flatten<T> {
    *
    * @param depth The maximum recursion depth
    */
-  flat(depth: number): Flatten<T>;
+  flat(depth: number): LinkedList<T>;
 
   /**
    * Calls a defined callback function on each element of an linked list. Then, flattens the result into

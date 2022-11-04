@@ -183,7 +183,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
       linkedList?: DoublyLinkedList<T> | undefined
     ) => U,
     thisArg?: any
-  ): DoublyLinkedList<U> {
+  ): LinkedList<U> {
     const newLinkedList = new LinkedList<U>();
     const addValue = (currentValue: U) => newLinkedList.push(currentValue);
     const map = methods.map.bind(this);

@@ -1,5 +1,3 @@
-import { DoublyLinkedList } from '../../linked-list/types';
-
 export interface Searchable<T> {
   /**
    * Determines whether an linked list includes a certain element, returning true or false as appropriate.
@@ -22,12 +20,12 @@ export interface Searchable<T> {
       this: void,
       value: T,
       index: number,
-      obj: DoublyLinkedList<T>
+      obj: Searchable<T>
     ) => value is S,
     thisArg?: any
   ): S | undefined;
   find(
-    predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => unknown,
+    predicate: (value: T, index: number, obj: Searchable<T>) => unknown,
     thisArg?: any
   ): T | undefined;
 
@@ -41,7 +39,7 @@ export interface Searchable<T> {
    * predicate. If it is not provided, undefined is used instead.
    */
   findIndex(
-    predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
+    predicate: (value: T, index: number, obj: Searchable<T>) => boolean,
     thisArg?: any
   ): number;
 
@@ -54,7 +52,7 @@ export interface Searchable<T> {
    * If thisArg is omitted, undefined is used as the this value.
    */
   some(
-    cb: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
+    cb: (value: T, index: number, obj: Searchable<T>) => boolean,
     thisArg?: any
   ): boolean;
 
@@ -67,19 +65,15 @@ export interface Searchable<T> {
    * If thisArg is omitted, undefined is used as the this value.
    */
   every<S extends T>(
-    predicate: (
-      value: T,
-      index: number,
-      obj: DoublyLinkedList<T>
-    ) => value is S,
+    predicate: (value: T, index: number, obj: Searchable<T>) => value is S,
     thisArg?: any
-  ): this is DoublyLinkedList<S>;
+  ): this is Searchable<S>;
   every(
-    predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => unknown,
+    predicate: (value: T, index: number, obj: Searchable<T>) => unknown,
     thisArg?: any
   ): boolean;
   every(
-    predicate: (value: T, index: number, obj: DoublyLinkedList<T>) => boolean,
+    predicate: (value: T, index: number, obj: Searchable<T>) => boolean,
     thisArg?: any
   ): boolean;
 }

@@ -1,7 +1,7 @@
-import { DoublyLinkedList } from '../../../linked-list';
+import { LinkedList } from '../../../linked-list';
 
 export function pushIterator<T>(
-  linkedList: DoublyLinkedList<T>,
+  linkedList: LinkedList<T>,
   iterator?: Iterable<T>
 ): void {
   if (iterator) {
