@@ -19,12 +19,11 @@ describe('testing static functions', () => {
 });
 
 describe('Testing basic Linked list methods', () => {
-  // TODO: make sure the linked list is not equal to an empty object
-  // it('should not be equal to an empty object', () => {
-  //   const linkedList = new LinkedList();
+  it('should not be equal to an empty object', () => {
+    const linkedList = new LinkedList();
 
-  //   expect(linkedList).not.toEqual({});
-  // });
+    expect(linkedList).not.toEqual({});
+  });
 
   it('should instantiate the class with the basic state', () => {
     const doublyLinkedList = new LinkedList();
