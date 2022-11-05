@@ -11,6 +11,6 @@ export function flat<T>(
   return linkedList.reduce(
     (acc, val) =>
       acc.concat(val instanceof LinkedList ? flat(val, depth - 1) : val),
-    new LinkedList<T>()
+    linkedList.slice(0, 0)
   );
 }

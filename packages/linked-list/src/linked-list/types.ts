@@ -12,8 +12,9 @@ import { Reversible } from '../core/traits/reversible';
 import { Searchable } from '../core/traits/searchable';
 import { Sliceable } from '../core/traits/sliceable';
 import { Sortable } from '../core/traits/sortable';
+import { FlatMap } from '../core/traits/flat-map';
 
-export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
+export type DoublyLinkedList<T> = BasicLinkedList<T> &
   IterableDataStructure<T> &
   Sliceable<T> &
   Searchable<T> &
@@ -26,4 +27,5 @@ export type DoublyLinkedList<T = any> = BasicLinkedList<T> &
   Reversible<T> &
   Concatenate<T> &
   Flatten<T> &
+  FlatMap<T> &
   Format;
