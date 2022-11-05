@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.0](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.5...awesome-collections-linked-list@0.1.0-alpha.0) (2022-11-05)
+
+### Bug Fixes
+
+- **linked-list:** fixes inconsistencies in the push and unshift methods ([b50a4ff](https://github.com/luigi055/awesome-collections/commit/b50a4ff26dd7ef55efde9a26358fbef2353baa59))
+- **linked-list:** fixes types in the traits implementations ([5ccc2e2](https://github.com/luigi055/awesome-collections/commit/5ccc2e26d7d1ba4bc086adb5e56d9342070b69f6))
+
+### Features
+
+- **linked-list:** implements the fill method defined by the fillable trait ([88f8d18](https://github.com/luigi055/awesome-collections/commit/88f8d180200c7db081fddd00c43d3c7f36b1a25a))
+- **linked-list:** implements the flat method defined by the flatten trait ([ab5bbaa](https://github.com/luigi055/awesome-collections/commit/ab5bbaabdb4b7eccaf7a705565debda760620277))
+- **linked-list:** implements the flatMap method defined by the flatten trait ([cc4a353](https://github.com/luigi055/awesome-collections/commit/cc4a3536d677e419084b78e2996329554801e5c6))
+
 ## [0.0.4-alpha.5](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.0.4-alpha.4...awesome-collections-linked-list@0.0.4-alpha.5) (2022-11-01)
 
 ### Features
