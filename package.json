@@ -4,11 +4,14 @@
   "description": "LinkedList, Deque, Stack, Queue, heaps, and other useful data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
   "main": "index.js",
   "scripts": {
-    "build": "nx run-many --target=build",
+    "build": "nx run-many --target=build --parallel",
     "lint": "eslint . --ext .ts  --cache --cache-strategy content",
-    "test": "nx run-many --target=test",
     "prepare": "husky install && pnpm --silent build",
-    "types:check": "tsc --noEmit false --outDir .tsbuild/ --incremental --tsBuildInfoFile .tsbuildinfo"
+    "test": "nx run-many --target=test --parallel",
+    "test:coverage": "nx run-many --target=test:coverage --parallel",
+    "types:check": "tsc --noEmit false --outDir .tsbuild/ --incremental --tsBuildInfoFile .tsbuildinfo",
+    "format:check": "nx run-many --target=format:check --parallel",
+    "verify": "pnpm types:check && pnpm lint && pnpm format:check && yarn test"
   },
   "keywords": [],
   "author": "",

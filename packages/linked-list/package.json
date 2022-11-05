@@ -12,6 +12,7 @@
     "build:js": "pnpm rollup -c rollup.config.js",
     "build:types": "tsc -p tsconfig.build.json",
     "format": "prettier --write .",
+    "format:check": "prettier --check . --ignore=coverage",
     "lint:format": "prettier --check .",
     "lint": "eslint src/**",
     "test": "vitest run",
