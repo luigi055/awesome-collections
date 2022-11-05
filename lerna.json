@@ -4,7 +4,7 @@
   "packages": ["packages/*"],
   "npmClient": "pnpm",
   "version": "independent",
-  "useNx": false,
+  "useNx": true,
   "command": {
     "version": {
       "conventionalCommits": true,

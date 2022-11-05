@@ -4,9 +4,9 @@
   "description": "LinkedList, Deque, Stack, Queue, heaps, and other useful data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
   "main": "index.js",
   "scripts": {
-    "build": "lerna run build --stream",
+    "build": "nx run-many --target=build",
     "lint": "eslint . --ext .ts  --cache --cache-strategy content",
-    "test": "lerna run test",
+    "test": "nx run-many --target=test",
     "prepare": "husky install && pnpm --silent build",
     "types:check": "tsc --noEmit false --outDir .tsbuild/ --incremental --tsBuildInfoFile .tsbuildinfo"
   },
@@ -19,17 +19,19 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "commitizen": "^4.2.5",
-    "cz-conventional-changelog": "^3.3.0",
-    "husky": "^8.0.1",
-    "lerna": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^27.0.1",
+    "husky": "^8.0.1",
+    "lerna": "^6.0.0",
+    "nx": "15.0.10",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.2",
+    "@nrwl/nx-cloud": "latest"
   },
   "config": {
     "commitizen": {
