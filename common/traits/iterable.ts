@@ -16,4 +16,5 @@ export interface IterableDataStructure<T> {
   //  */
   values(): Iterable<T> & Iterator<T>;
 }
+
 export type Entry<T = any> = [number, T];
