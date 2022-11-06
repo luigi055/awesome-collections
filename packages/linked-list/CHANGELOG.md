@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.3](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.1.0-alpha.2...awesome-collections-linked-list@0.1.0-alpha.3) (2022-11-06)
+
+### Bug Fixes
+
+- **linked-list:** fixes types declarations for the package ([106be5e](https://github.com/luigi055/awesome-collections/commit/106be5eb74f89500e8018adafde5a17dd7a22e99))
+
 # [0.1.0-alpha.2](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.1.0-alpha.1...awesome-collections-linked-list@0.1.0-alpha.2) (2022-11-05)
 
 ### Features
