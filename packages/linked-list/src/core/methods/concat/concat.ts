@@ -1,14 +1,19 @@
-import { LinkedList } from '../../../linked-list';
+import { DoublyLinkedList } from '../../../linked-list';
 import { pushIterator } from '../push-iterator';
+import { _isLinkedList } from '../_is-linked-list';
 
+// TODO: implement function operating over the rawLinkedList instead of the LinkedList
 export function concat<T>(
-  linkedList: LinkedList<T>,
-  ...items: (LinkedList<T> | T)[]
+  linkedList: DoublyLinkedList<T>,
+  ...items: (DoublyLinkedList<T> | T)[]
 ) {
-  const newLinkedList = linkedList.slice();
+  const newLinkedList = linkedList.slice(
+    0,
+    linkedList.size
+  ) as DoublyLinkedList<T>;
 
   for (const item of items) {
-    if (item instanceof LinkedList) {
+    if (_isLinkedList<T>(item)) {
       pushIterator<T>(newLinkedList, item.values());
     } else {
       newLinkedList.push(item);

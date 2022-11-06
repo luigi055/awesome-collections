@@ -1,24 +1,26 @@
-import { LinkedList } from '../../../linked-list';
+import { DoublyLinkedList } from '../../../linked-list';
 import { pushIterator } from '../push-iterator';
+import { _isLinkedList } from '../_is-linked-list';
 
+// TODO: implement function operating over the rawLinkedList instead of the LinkedList
 export function flatMap<T, U, This = undefined>(
-  linkedList: LinkedList<T>,
+  linkedList: DoublyLinkedList<T>,
+  newLinkedList: DoublyLinkedList<U>,
   callback: (
     this: This,
     value: T,
     index?: number,
-    linkedList?: LinkedList<T>
-  ) => U | LinkedList<U>,
+    linkedList?: any
+  ) => U | DoublyLinkedList<U>,
   thisArg?: This
-): LinkedList<U> {
-  const newLinkedList = new LinkedList<U>();
+): DoublyLinkedList<U> {
   if (linkedList.rawLinkedList.head === undefined) return newLinkedList;
   let i = 0;
   let current = linkedList.rawLinkedList.head;
   while (i < linkedList.size) {
     const cbResult = callback.call(thisArg!, current.value, i, linkedList);
 
-    if (LinkedList.isLinkedList(cbResult)) {
+    if (_isLinkedList(cbResult)) {
       pushIterator<U>(newLinkedList, cbResult.values());
     } else {
       newLinkedList.push(cbResult as U);

@@ -313,8 +313,8 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     return this;
   }
 
-  public concat(...items: (LinkedList<T> | T)[]) {
-    return methods.concat<T>(this, ...items);
+  public concat(...items: (LinkedList<T> | T)[]): LinkedList<T> {
+    return methods.concat<T>(this, ...items) as LinkedList<T>;
   }
 
   public splice(start: number, deleteCount?: number): LinkedList<T>;
@@ -328,7 +328,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public flat(depth = 1): LinkedList<T> {
-    return methods.flat<T>(this, depth);
+    return methods.flat<T>(this, depth) as LinkedList<T>;
   }
 
   public flatMap<U, This = undefined>(
@@ -340,7 +340,12 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     ) => U | LinkedList<U>,
     thisArg?: This
   ): LinkedList<U> {
-    return methods.flatMap<T, U, This>(this, callback, thisArg);
+    return methods.flatMap<T, U, This>(
+      this,
+      new LinkedList<U>(),
+      callback,
+      thisArg
+    ) as LinkedList<U>;
   }
 
   public fill(value: T, start = 0, end = this.size): LinkedList<T> {
