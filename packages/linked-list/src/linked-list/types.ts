@@ -1,5 +1,5 @@
+import type * as traits from 'awesome-collections-core';
 import { LinkedListDataStructure } from '../core/raw-linked-list';
-import type * as traits from '../core/traits';
 
 export type DoublyLinkedList<T> = {
   nodes: LinkedListDataStructure<T>;

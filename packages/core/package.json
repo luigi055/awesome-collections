@@ -1,9 +1,9 @@
 {
-  "name": "awesome-collections-linked-list",
-  "version": "0.1.0-alpha.3",
+  "name": "awesome-collections-core",
+  "version": "0.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "description": "LinkedList data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
+  "description": "core functionalities and traits for implementing awesome collections",
   "types": "dist/index.d.ts",
   "source": "./src/index.ts",
   "files": [
@@ -16,10 +16,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check . --ignore=coverage",
     "lint:format": "prettier --check .",
-    "lint": "eslint src/**",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "pnpm test -- --coverage"
+    "lint": "eslint src/**"
   },
   "sideEffects": false,
   "author": "Pedro La Rosa <pedrolarosad@gmail.com>",
@@ -42,8 +39,7 @@
     "vitest": "^0.24.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.18.9",
-    "awesome-collections-core": "workspace:*"
+    "@babel/runtime": "^7.18.9"
   },
   "homepage": "https://github.com/luigi055/data-structures-extentions"
 }

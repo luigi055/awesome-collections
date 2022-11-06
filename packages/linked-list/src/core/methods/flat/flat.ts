@@ -11,7 +11,7 @@ export function flat<T>(
   }
 
   return linkedList.reduce(
-    (acc: any | T, val) =>
+    (acc: any | T, val: T) =>
       acc.concat(_isLinkedList<T>(val) ? flat(val, depth - 1) : val),
     linkedList.slice(0, 0)
   ) as DoublyLinkedList<T>;

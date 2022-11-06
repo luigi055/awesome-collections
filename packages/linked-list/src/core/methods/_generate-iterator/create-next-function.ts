@@ -1,7 +1,7 @@
+import { Entry } from 'awesome-collections-core';
 import { IteratorMethodType } from './types';
 import { DoublyLinkedListNode } from '../../linked-list-node';
 import { LinkedListDataStructure } from '../../raw-linked-list';
-import { Entry } from '../../traits';
 
 function createNextFn<T>(
   nodes: LinkedListDataStructure<T>,

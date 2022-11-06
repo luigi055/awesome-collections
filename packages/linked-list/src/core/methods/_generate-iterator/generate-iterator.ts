@@ -1,5 +1,5 @@
+import { Entry } from 'awesome-collections-core';
 import { IteratorMethodType } from './types';
-import { Entry } from '../../traits';
 import { DoublyLinkedListNode } from '../../linked-list-node';
 import { LinkedListDataStructure } from '../../raw-linked-list';
 import { createNextFn } from './create-next-function';
