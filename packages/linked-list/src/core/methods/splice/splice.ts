@@ -2,7 +2,7 @@ import { DoublyLinkedList } from '../../../linked-list';
 import { insertMany } from './collaborators/insert-many';
 import { spliceFromStart } from './collaborators/splice-from-start';
 
-// TODO: implement function operating over the rawLinkedList instead of the LinkedList
+// TODO: implement function operating over the nodes instead of the LinkedList
 export function splice<T>(
   linkedList: DoublyLinkedList<T>,
   start: number,
@@ -32,10 +32,10 @@ export function splice<T>(
     if (currentAfterItemsInserted?.next) {
       currentAfterItemsInserted.next.previous = currentAfterItemsInserted;
     } else {
-      linkedList.rawLinkedList.tail = currentAfterItemsInserted;
+      linkedList.nodes.tail = currentAfterItemsInserted;
     }
 
-    linkedList.rawLinkedList.length--;
+    linkedList.nodes.length--;
   }
 
   return returnedLinkedList;

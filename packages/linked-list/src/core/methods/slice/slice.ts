@@ -2,12 +2,12 @@ import { LinkedListDataStructure } from '../../raw-linked-list';
 import { _getNode } from '../_get-node';
 
 export function slice<T = any>(
-  rawLinkedList: LinkedListDataStructure<T>,
+  nodes: LinkedListDataStructure<T>,
   updateCallback: (currentValue: T) => void,
   start: number,
   end: number
 ): void {
-  const initialElement = _getNode(rawLinkedList, start);
+  const initialElement = _getNode(nodes, start);
   if (initialElement === undefined || end < start) return;
   let i = start;
   let current = initialElement;

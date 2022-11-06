@@ -4,27 +4,27 @@ import { RawLinkedList } from '../../raw-linked-list';
 import { unshift } from './unshift';
 
 it("should don't add any element of the linked list if the second parameter is empty", () => {
-  const rawLinkedList = new RawLinkedList();
+  const nodes = new RawLinkedList();
 
-  expect(unshift(rawLinkedList)).toBe(0);
+  expect(unshift(nodes)).toBe(0);
 
-  expect(rawLinkedList.head).toBe(undefined);
-  expect(rawLinkedList.tail).toBe(undefined);
-  expect(rawLinkedList.length).toBe(0);
+  expect(nodes.head).toBe(undefined);
+  expect(nodes.tail).toBe(undefined);
+  expect(nodes.length).toBe(0);
 });
 
 it('should return 1 when add one element to the linked list', () => {
-  const rawLinkedList = new RawLinkedList();
+  const nodes = new RawLinkedList();
 
-  expect(unshift(rawLinkedList, 400)).toBe(1);
+  expect(unshift(nodes, 400)).toBe(1);
 
-  expect(rawLinkedList.head).toEqual(new LinkedListNode(400));
-  expect(rawLinkedList.tail).toEqual(new LinkedListNode(400));
-  expect(rawLinkedList.length).toBe(1);
+  expect(nodes.head).toEqual(new LinkedListNode(400));
+  expect(nodes.tail).toEqual(new LinkedListNode(400));
+  expect(nodes.length).toBe(1);
 });
 
 it('should return 5 when add 5 elements into the linked list', () => {
-  const rawLinkedList = new RawLinkedList();
+  const nodes = new RawLinkedList();
   const nodeOne = new LinkedListNode(400);
   const nodeTwo = new LinkedListNode(200);
   const nodeThree = new LinkedListNode(800);
@@ -45,13 +45,13 @@ it('should return 5 when add 5 elements into the linked list', () => {
   expectedRawLinkedList.tail = nodeFive;
   expectedRawLinkedList.length = 5;
 
-  expect(unshift(rawLinkedList, 400, 200, 800, 400, 900)).toBe(5);
+  expect(unshift(nodes, 400, 200, 800, 400, 900)).toBe(5);
 
-  expect(rawLinkedList).toEqual(expectedRawLinkedList);
+  expect(nodes).toEqual(expectedRawLinkedList);
 });
 
 it('should add 3 elements at the beginning of the linked list', () => {
-  const rawLinkedList = new RawLinkedList();
+  const nodes = new RawLinkedList();
   const expectedRawLinkedList = new RawLinkedList();
 
   const nodeOne = new LinkedListNode(250);
@@ -59,9 +59,9 @@ it('should add 3 elements at the beginning of the linked list', () => {
   nodeOne.next = nodeTwo;
   nodeTwo.previous = nodeOne;
 
-  rawLinkedList.head = nodeOne;
-  rawLinkedList.tail = nodeTwo;
-  rawLinkedList.length = 2;
+  nodes.head = nodeOne;
+  nodes.tail = nodeTwo;
+  nodes.length = 2;
 
   const expectedNodeFour = new LinkedListNode(250);
   const expectedNodeFive = new LinkedListNode(36);
@@ -83,6 +83,6 @@ it('should add 3 elements at the beginning of the linked list', () => {
   expectedRawLinkedList.tail = expectedNodeFive;
   expectedRawLinkedList.length = 5;
 
-  expect(unshift(rawLinkedList, 8, 198, 3)).toBe(5);
-  expect(rawLinkedList).toEqual(expectedRawLinkedList);
+  expect(unshift(nodes, 8, 198, 3)).toBe(5);
+  expect(nodes).toEqual(expectedRawLinkedList);
 });

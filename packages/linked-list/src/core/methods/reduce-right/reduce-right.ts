@@ -3,7 +3,7 @@ import { forEachReverse } from '../for-each-reverse';
 
 export function reduceRight<T, U = any, This = any>(
   this: This,
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   callbackfn: (
     previousValue: U | T,
     currentValue: T,
@@ -13,13 +13,13 @@ export function reduceRight<T, U = any, This = any>(
   initialValue?: U | T
 ): U | T {
   const isInitialValueMissing = arguments.length === 2;
-  if (rawLinkedList.length === 0 && isInitialValueMissing) {
+  if (nodes.length === 0 && isInitialValueMissing) {
     throw new TypeError('Reduce of empty linked list with no initial value');
   }
 
   let currentPreviousValue = initialValue;
 
-  forEachReverse<T>(rawLinkedList, (value, index) => {
+  forEachReverse<T>(nodes, (value, index) => {
     if (!currentPreviousValue && isInitialValueMissing) {
       currentPreviousValue = value;
       return;

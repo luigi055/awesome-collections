@@ -2,7 +2,7 @@ import { LinkedListDataStructure } from '../core/raw-linked-list';
 import type * as traits from '../core/traits';
 
 export type DoublyLinkedList<T> = {
-  rawLinkedList: LinkedListDataStructure<T>;
+  nodes: LinkedListDataStructure<T>;
   /**
    * @returns the number of elements in the Linked list.
    */

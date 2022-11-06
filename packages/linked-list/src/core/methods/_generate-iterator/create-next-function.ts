@@ -4,11 +4,11 @@ import { LinkedListDataStructure } from '../../raw-linked-list';
 import { Entry } from '../../traits';
 
 function createNextFn<T>(
-  rawLinkedList: LinkedListDataStructure<T>,
+  nodes: LinkedListDataStructure<T>,
   iterableState: { count: number; current?: DoublyLinkedListNode<T> },
   kind: IteratorMethodType
 ) {
-  const rawLL = rawLinkedList;
+  const rawLL = nodes;
 
   return function next() {
     if (!iterableState.current && iterableState.count === 0) {

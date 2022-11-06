@@ -4,15 +4,15 @@ import { push } from '../push';
 import { _getNode } from '../_get-node';
 
 export function insert<T = any>(
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   index: number,
   value: T
 ): boolean {
-  if (index < 0 || index > rawLinkedList.length) return false;
-  if (index === rawLinkedList.length) return !!push(rawLinkedList, value);
+  if (index < 0 || index > nodes.length) return false;
+  if (index === nodes.length) return !!push(nodes, value);
 
   const newNode = new LinkedListNode(value);
-  const previousNode = _getNode(rawLinkedList, index - 1);
+  const previousNode = _getNode(nodes, index - 1);
 
   const nextNode = previousNode!.next;
 
@@ -21,7 +21,7 @@ export function insert<T = any>(
   newNode.previous = previousNode;
   nextNode!.previous = newNode;
 
-  rawLinkedList.length++;
+  nodes.length++;
 
   return true;
 }

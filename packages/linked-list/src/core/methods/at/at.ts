@@ -6,16 +6,16 @@ import { get } from '../get';
  * @param index The zero-based index of the desired code unit. A negative index will count back from the last item.
  */
 export function at<T = any>(
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   index: number
 ): T | undefined {
   if (index === undefined) return undefined;
   const signedIndexLookUp =
-    index < 0 && Math.abs(index) <= rawLinkedList.length
-      ? Math.abs(index * -1 - rawLinkedList.length)
+    index < 0 && Math.abs(index) <= nodes.length
+      ? Math.abs(index * -1 - nodes.length)
       : index;
 
-  if (signedIndexLookUp >= rawLinkedList.length) return undefined;
+  if (signedIndexLookUp >= nodes.length) return undefined;
 
-  return get(rawLinkedList, signedIndexLookUp);
+  return get(nodes, signedIndexLookUp);
 }

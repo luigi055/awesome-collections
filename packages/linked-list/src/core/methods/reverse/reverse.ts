@@ -1,12 +1,12 @@
 import { LinkedListDataStructure } from '../../raw-linked-list';
 
-export function reverse(rawLinkedList: LinkedListDataStructure): void {
-  let left = rawLinkedList.head;
-  let right = rawLinkedList.tail;
+export function reverse(nodes: LinkedListDataStructure): void {
+  let left = nodes.head;
+  let right = nodes.tail;
 
   let i = 0;
 
-  while (i < rawLinkedList.length / 2) {
+  while (i < nodes.length / 2) {
     const cachedLeft = left!.value!;
     left!.value = right!.value;
     right!.value = cachedLeft;

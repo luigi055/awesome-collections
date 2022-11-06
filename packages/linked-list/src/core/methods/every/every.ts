@@ -3,11 +3,11 @@ import { entries } from '../entries';
 
 export function every<T = any, This = any>(
   this: This,
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   predicate: (value: T, index: number, obj: This) => boolean,
   thisArg?: any
 ): boolean {
-  for (const [index, value] of entries(rawLinkedList)) {
+  for (const [index, value] of entries(nodes)) {
     if (predicate.call(thisArg, value, index, this) === false) return false;
   }
 

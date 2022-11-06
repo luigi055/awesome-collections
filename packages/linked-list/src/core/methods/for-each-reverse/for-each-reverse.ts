@@ -1,13 +1,12 @@
 import { LinkedListDataStructure } from '../../raw-linked-list';
 
 export function forEachReverse<T>(
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   cb: (node: T, index: number) => void
 ): undefined {
-  if (rawLinkedList.head === undefined || rawLinkedList.tail === undefined)
-    return undefined;
-  let i = rawLinkedList.length;
-  let current = rawLinkedList.tail;
+  if (nodes.head === undefined || nodes.tail === undefined) return undefined;
+  let i = nodes.length;
+  let current = nodes.tail;
   while (i > 0) {
     cb(current.value, i - 1);
     if (current.previous) {

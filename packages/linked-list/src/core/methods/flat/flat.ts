@@ -1,7 +1,7 @@
 import { DoublyLinkedList } from '../../../linked-list';
 import { _isLinkedList } from '../_is-linked-list';
 
-// TODO: implement function operating over the rawLinkedList instead of the LinkedList
+// TODO: implement function operating over the nodes instead of the LinkedList
 export function flat<T>(
   linkedList: DoublyLinkedList<T>,
   depth: number

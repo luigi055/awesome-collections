@@ -4,14 +4,14 @@ import { pop } from '../pop';
 
 export function sort<T, This = any>(
   this: This,
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   compareFn?: (a: T, b: T) => number
 ): void {
-  if (rawLinkedList.length <= 1) return;
+  if (nodes.length <= 1) return;
 
   const array: T[] = [];
-  while (rawLinkedList.length > 0) {
-    const poppedElement = pop<T>(rawLinkedList);
+  while (nodes.length > 0) {
+    const poppedElement = pop<T>(nodes);
     if (poppedElement) {
       array.push(poppedElement);
     }
@@ -20,6 +20,6 @@ export function sort<T, This = any>(
   array.sort(compareFn);
 
   for (const value of array) {
-    push<T>(rawLinkedList, value);
+    push<T>(nodes, value);
   }
 }

@@ -10,10 +10,10 @@ export function insertMany<T>(
   index: number,
   ...items: T[]
 ): DoublyLinkedListNode<T> | undefined {
-  let current = _getNode(linkedList.rawLinkedList, index);
+  let current = _getNode(linkedList.nodes, index);
   if (!current) {
     linkedList.push(...items);
-    return linkedList.rawLinkedList.tail;
+    return linkedList.nodes.tail;
   }
 
   for (const item of items) {
@@ -23,7 +23,7 @@ export function insertMany<T>(
     newNode.previous = current;
     current.next = newNode;
 
-    linkedList.rawLinkedList.length++;
+    linkedList.nodes.length++;
 
     current = current?.next;
   }

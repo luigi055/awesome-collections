@@ -1,15 +1,15 @@
 import { LinkedListDataStructure } from '../../raw-linked-list';
 
 export function includes<T>(
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   searchElement: T,
   fromIndex = 0
 ): boolean {
-  if (rawLinkedList.head === undefined) return false;
+  if (nodes.head === undefined) return false;
   let i = 0;
-  let current = rawLinkedList.head;
+  let current = nodes.head;
 
-  while (i < rawLinkedList.length) {
+  while (i < nodes.length) {
     if (i < fromIndex - 1) {
       i += 1;
       break;

@@ -1,23 +1,21 @@
 import { LinkedListDataStructure } from '../../raw-linked-list';
 
-export function shift<T = any>(
-  rawLinkedList: LinkedListDataStructure
-): T | undefined {
-  if (!rawLinkedList.head) return undefined;
-  const shiftedNode = rawLinkedList.head;
+export function shift<T = any>(nodes: LinkedListDataStructure): T | undefined {
+  if (!nodes.head) return undefined;
+  const shiftedNode = nodes.head;
 
-  if (rawLinkedList.length === 1) {
-    rawLinkedList.head = undefined;
-    rawLinkedList.tail = undefined;
+  if (nodes.length === 1) {
+    nodes.head = undefined;
+    nodes.tail = undefined;
   } else {
-    rawLinkedList.head = shiftedNode.next;
-    if (rawLinkedList.head) {
-      rawLinkedList.head.previous = undefined;
+    nodes.head = shiftedNode.next;
+    if (nodes.head) {
+      nodes.head.previous = undefined;
       shiftedNode.next = undefined;
     }
   }
 
-  rawLinkedList.length--;
+  nodes.length--;
 
   return shiftedNode?.value;
 }

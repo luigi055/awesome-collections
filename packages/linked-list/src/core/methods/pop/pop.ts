@@ -1,23 +1,21 @@
 import { LinkedListDataStructure } from '../../raw-linked-list';
 
-export function pop<T = any>(
-  rawLinkedList: LinkedListDataStructure
-): T | undefined {
-  if (!rawLinkedList.head || !rawLinkedList.tail) return undefined;
-  const poppedNode = rawLinkedList.tail;
+export function pop<T = any>(nodes: LinkedListDataStructure): T | undefined {
+  if (!nodes.head || !nodes.tail) return undefined;
+  const poppedNode = nodes.tail;
 
-  if (rawLinkedList.length === 1) {
-    rawLinkedList.head = undefined;
-    rawLinkedList.tail = undefined;
+  if (nodes.length === 1) {
+    nodes.head = undefined;
+    nodes.tail = undefined;
   } else {
-    rawLinkedList.tail = poppedNode.previous;
-    if (rawLinkedList.tail) {
-      rawLinkedList.tail.next = undefined;
+    nodes.tail = poppedNode.previous;
+    if (nodes.tail) {
+      nodes.tail.next = undefined;
       poppedNode.previous = undefined;
     }
   }
 
-  rawLinkedList.length--;
+  nodes.length--;
 
   return poppedNode?.value;
 }

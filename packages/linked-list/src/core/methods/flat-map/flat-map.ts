@@ -2,7 +2,7 @@ import { DoublyLinkedList } from '../../../linked-list';
 import { pushIterator } from '../push-iterator';
 import { _isLinkedList } from '../_is-linked-list';
 
-// TODO: implement function operating over the rawLinkedList instead of the LinkedList
+// TODO: implement function operating over the nodes instead of the LinkedList
 export function flatMap<T, U, This = undefined>(
   linkedList: DoublyLinkedList<T>,
   newLinkedList: DoublyLinkedList<U>,
@@ -14,9 +14,9 @@ export function flatMap<T, U, This = undefined>(
   ) => U | DoublyLinkedList<U>,
   thisArg?: This
 ): DoublyLinkedList<U> {
-  if (linkedList.rawLinkedList.head === undefined) return newLinkedList;
+  if (linkedList.nodes.head === undefined) return newLinkedList;
   let i = 0;
-  let current = linkedList.rawLinkedList.head;
+  let current = linkedList.nodes.head;
   while (i < linkedList.size) {
     const cbResult = callback.call(thisArg!, current.value, i, linkedList);
 

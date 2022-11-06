@@ -2,20 +2,20 @@ import { DoublyLinkedListNode, LinkedListNode } from '../../linked-list-node';
 import { LinkedListDataStructure } from '../../raw-linked-list';
 
 function pushValue<T = any>(
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   value: T
 ): DoublyLinkedListNode<T> {
   const newNode = new LinkedListNode<T>(value);
-  if (!rawLinkedList.head || !rawLinkedList.tail) {
-    rawLinkedList.head = newNode;
-    rawLinkedList.tail = newNode;
+  if (!nodes.head || !nodes.tail) {
+    nodes.head = newNode;
+    nodes.tail = newNode;
   } else {
-    rawLinkedList.tail.next = newNode;
-    newNode.previous = rawLinkedList.tail;
-    rawLinkedList.tail = newNode;
+    nodes.tail.next = newNode;
+    newNode.previous = nodes.tail;
+    nodes.tail = newNode;
   }
 
-  rawLinkedList.length++;
+  nodes.length++;
 
   return newNode;
 }
@@ -25,12 +25,12 @@ function pushValue<T = any>(
  * @param items New elements to add to the linked list.
  */
 export function push<T = any>(
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   ...items: T[]
 ): number {
   for (const value of items) {
-    pushValue(rawLinkedList, value);
+    pushValue(nodes, value);
   }
 
-  return rawLinkedList.length;
+  return nodes.length;
 }

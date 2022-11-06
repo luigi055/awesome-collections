@@ -4,9 +4,9 @@ import { push } from '../push';
 import { forEach } from './for-each';
 
 it('should return undefined when the linked list is empty', () => {
-  const rawLinkedList = new RawLinkedList<number>();
+  const nodes = new RawLinkedList<number>();
 
-  const returnedValue = forEach<number>(rawLinkedList, (value) => {
+  const returnedValue = forEach<number>(nodes, (value) => {
     return value + value;
   });
 
@@ -14,10 +14,10 @@ it('should return undefined when the linked list is empty', () => {
 });
 
 it('should return undefined when the linked list has values', () => {
-  const rawLinkedList = new RawLinkedList<number>();
-  push(rawLinkedList, 345, 23, 345, 12, 80);
+  const nodes = new RawLinkedList<number>();
+  push(nodes, 345, 23, 345, 12, 80);
 
-  const returnedValue = forEach<number>(rawLinkedList, (value) => {
+  const returnedValue = forEach<number>(nodes, (value) => {
     return value + value;
   });
 
@@ -25,11 +25,11 @@ it('should return undefined when the linked list has values', () => {
 });
 
 it('should iterate all the index and values of the linked list', () => {
-  const rawLinkedList = new RawLinkedList<number>();
-  push(rawLinkedList, 345, 23, 345, 12, 80);
+  const nodes = new RawLinkedList<number>();
+  push(nodes, 345, 23, 345, 12, 80);
 
   const expectedEntries: [number, number][] = [];
-  forEach<number>(rawLinkedList, (value, index) => {
+  forEach<number>(nodes, (value, index) => {
     expectedEntries.push([index, value]);
   });
 

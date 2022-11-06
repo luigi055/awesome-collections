@@ -2,8 +2,8 @@ import { LinkedListDataStructure } from '../../raw-linked-list';
 import { _getNode } from '../_get-node';
 
 export function get<T = any>(
-  rawLinkedList: LinkedListDataStructure,
+  nodes: LinkedListDataStructure,
   index: number
 ): T | undefined {
-  return _getNode(rawLinkedList, index)?.value;
+  return _getNode(nodes, index)?.value;
 }

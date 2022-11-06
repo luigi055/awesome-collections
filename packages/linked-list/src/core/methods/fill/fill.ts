@@ -6,7 +6,7 @@ export function fill<T>(
   start = 0,
   end: number
 ): LinkedList {
-  let current = linkedList.rawLinkedList.head;
+  let current = linkedList.nodes.head;
   let i = 0;
 
   while (current) {

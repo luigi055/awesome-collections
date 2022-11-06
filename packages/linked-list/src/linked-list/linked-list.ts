@@ -3,7 +3,7 @@ import { RawLinkedList } from '../core/raw-linked-list';
 import * as methods from '../core/methods';
 
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
-  rawLinkedList = new RawLinkedList<T>();
+  nodes = new RawLinkedList<T>();
 
   /**
    * Check if the argument is an linked list
@@ -22,83 +22,80 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public get size() {
-    return this.rawLinkedList.length;
+    return this.nodes.length;
   }
 
   public get head() {
-    return this.rawLinkedList.head?.value;
+    return this.nodes.head?.value;
   }
 
   public get tail() {
-    return this.rawLinkedList.tail?.value;
+    return this.nodes.tail?.value;
   }
 
   [Symbol.iterator]() {
-    return methods.values<T>(this.rawLinkedList);
+    return methods.values<T>(this.nodes);
   }
 
   public values() {
-    return methods.values<T>(this.rawLinkedList);
+    return methods.values<T>(this.nodes);
   }
 
   public keys() {
-    return methods.keys<T>(this.rawLinkedList);
+    return methods.keys<T>(this.nodes);
   }
 
   public entries() {
-    return methods.entries<T>(this.rawLinkedList);
+    return methods.entries<T>(this.nodes);
   }
 
   public push(...items: T[]) {
-    return methods.push<T>(this.rawLinkedList, ...items);
+    return methods.push<T>(this.nodes, ...items);
   }
 
   public unshift(...items: T[]) {
-    return methods.unshift<T>(this.rawLinkedList, ...items);
+    return methods.unshift<T>(this.nodes, ...items);
   }
 
   public pop() {
-    return methods.pop<T>(this.rawLinkedList);
+    return methods.pop<T>(this.nodes);
   }
 
   public shift() {
-    return methods.shift<T>(this.rawLinkedList);
+    return methods.shift<T>(this.nodes);
   }
 
   public get(index: number) {
-    return methods.get<T>(this.rawLinkedList, index);
+    return methods.get<T>(this.nodes, index);
   }
 
   public set(index: number, value: T) {
-    return methods.set<T>(this.rawLinkedList, index, value);
+    return methods.set<T>(this.nodes, index, value);
   }
 
   public delete(index: number) {
-    return methods.deleteValue<T>(this.rawLinkedList, index);
+    return methods.deleteValue<T>(this.nodes, index);
   }
 
   public insert(index: number, value: T) {
-    return methods.insert<T>(this.rawLinkedList, index, value);
+    return methods.insert<T>(this.nodes, index, value);
   }
 
   public forEach(
     callbackfn: (value: T, index: number, linkedList: LinkedList<T>) => void,
     thisArg?: any
   ): void {
-    methods.forEach.bind(this)<T>(this.rawLinkedList, callbackfn, thisArg);
+    methods.forEach.bind(this)<T>(this.nodes, callbackfn, thisArg);
   }
 
   public clear() {
-    return methods.clear(this.rawLinkedList);
+    return methods.clear(this.nodes);
   }
 
-  public slice(
-    start = 0,
-    end: number = this.rawLinkedList.length
-  ): LinkedList<T> {
+  public slice(start = 0, end: number = this.nodes.length): LinkedList<T> {
     const newLinkedList = new LinkedList<T>();
     const addValue = (currentValue: T) => newLinkedList.push(currentValue);
-    methods.slice(this.rawLinkedList, addValue, start, end);
+    methods.slice(this.nodes, addValue, start, end);
 
     return newLinkedList;
   }
@@ -108,19 +105,19 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public at(index: number) {
-    return methods.at(this.rawLinkedList, index);
+    return methods.at(this.nodes, index);
   }
 
   public indexOf<T = any>(searchElement: T, fromIndex = 0): number {
-    return methods.indexOf(this.rawLinkedList, searchElement, fromIndex);
+    return methods.indexOf(this.nodes, searchElement, fromIndex);
   }
 
   public lastIndexOf(searchElement: T, fromIndex = this.size - 1): number {
-    return methods.lastIndexOf(this.rawLinkedList, searchElement, fromIndex);
+    return methods.lastIndexOf(this.nodes, searchElement, fromIndex);
   }
 
   public includes<T>(searchElement: T, fromIndex = 0): boolean {
-    return methods.includes(this.rawLinkedList, searchElement, fromIndex);
+    return methods.includes(this.nodes, searchElement, fromIndex);
   }
 
   public find<S extends T>(
@@ -141,7 +138,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     thisArg?: any
   ) {
     const find = methods.findValue.bind(this);
-    return find<T>(this.rawLinkedList, predicate, thisArg)[1];
+    return find<T>(this.nodes, predicate, thisArg)[1];
   }
 
   public findIndex(
@@ -149,7 +146,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     thisArg?: any
   ): number {
     const find = methods.findValue.bind(this);
-    return find<T>(this.rawLinkedList, predicate, thisArg)[0];
+    return find<T>(this.nodes, predicate, thisArg)[0];
   }
 
   public some(
@@ -173,7 +170,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   ): boolean {
     const every = methods.every.bind(this);
 
-    return every<T>(this.rawLinkedList, predicate, thisArg);
+    return every<T>(this.nodes, predicate, thisArg);
   }
 
   map<U>(
@@ -187,7 +184,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     const newLinkedList = new LinkedList<U>();
     const addValue = (currentValue: U) => newLinkedList.push(currentValue);
     const map = methods.map.bind(this);
-    map<T, U>(this.rawLinkedList, addValue, callbackfn, thisArg);
+    map<T, U>(this.nodes, addValue, callbackfn, thisArg);
 
     return newLinkedList;
   }
@@ -207,13 +204,13 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     const result = new LinkedList<T>();
     const addValue = (currentValue: T) => result.push(currentValue);
     const filter = methods.filter.bind(this);
-    filter<T>(this.rawLinkedList, addValue, predicate, thisArg);
+    filter<T>(this.nodes, addValue, predicate, thisArg);
 
     return result;
   }
 
   sort(compareFn?: ((a: T, b: T) => number) | undefined): this {
-    methods.sort<T>(this.rawLinkedList, compareFn);
+    methods.sort<T>(this.nodes, compareFn);
 
     return this;
   }
@@ -255,8 +252,8 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   ): U | T {
     const reduce = methods.reduce.bind(this);
     return arguments.length === 1
-      ? reduce<T, U>(this.rawLinkedList, callbackfn)
-      : reduce<T, U>(this.rawLinkedList, callbackfn, initialValue);
+      ? reduce<T, U>(this.nodes, callbackfn)
+      : reduce<T, U>(this.nodes, callbackfn, initialValue);
   }
 
   public reduceRight(
@@ -296,20 +293,20 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   ): U | T {
     const reduceRight = methods.reduceRight.bind(this);
     return arguments.length === 1
-      ? reduceRight<T, U>(this.rawLinkedList, callbackfn)
-      : reduceRight<T, U>(this.rawLinkedList, callbackfn, initialValue);
+      ? reduceRight<T, U>(this.nodes, callbackfn)
+      : reduceRight<T, U>(this.nodes, callbackfn, initialValue);
   }
 
   public join(separator = ','): string {
-    return methods.join(this.rawLinkedList, separator);
+    return methods.join(this.nodes, separator);
   }
 
   public toString(): string {
-    return methods.toString(this.rawLinkedList);
+    return methods.toString(this.nodes);
   }
 
   public reverse(): this {
-    methods.reverse.call(this, this.rawLinkedList);
+    methods.reverse.call(this, this.nodes);
     return this;
   }
 

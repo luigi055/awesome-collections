@@ -4,9 +4,9 @@ import { push } from '../push';
 import { forEachReverse } from './for-each-reverse';
 
 it('should return undefined when the linked list is empty', () => {
-  const rawLinkedList = new RawLinkedList<number>();
+  const nodes = new RawLinkedList<number>();
 
-  const returnedValue = forEachReverse<number>(rawLinkedList, (value) => {
+  const returnedValue = forEachReverse<number>(nodes, (value) => {
     return value + value;
   });
 
@@ -14,10 +14,10 @@ it('should return undefined when the linked list is empty', () => {
 });
 
 it('should return undefined when the linked list has values', () => {
-  const rawLinkedList = new RawLinkedList<number>();
-  push(rawLinkedList, 345, 23, 345, 12, 80);
+  const nodes = new RawLinkedList<number>();
+  push(nodes, 345, 23, 345, 12, 80);
 
-  const returnedValue = forEachReverse<number>(rawLinkedList, (value) => {
+  const returnedValue = forEachReverse<number>(nodes, (value) => {
     return value + value;
   });
 
@@ -25,11 +25,11 @@ it('should return undefined when the linked list has values', () => {
 });
 
 it('should iterate all the index and values of the linked list', () => {
-  const rawLinkedList = new RawLinkedList<number>();
-  push(rawLinkedList, 345, 23, 345, 12, 80);
+  const nodes = new RawLinkedList<number>();
+  push(nodes, 345, 23, 345, 12, 80);
 
   const expectedEntries: [number, number][] = [];
-  forEachReverse<number>(rawLinkedList, (value, index) => {
+  forEachReverse<number>(nodes, (value, index) => {
     expectedEntries.push([index, value]);
   });
 
