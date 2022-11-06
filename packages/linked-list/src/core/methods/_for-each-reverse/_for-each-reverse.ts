@@ -1,6 +1,6 @@
 import { LinkedListDataStructure } from '../../raw-linked-list';
 
-export function forEachReverse<T>(
+export function _forEachReverse<T>(
   nodes: LinkedListDataStructure,
   cb: (node: T, index: number) => void
 ): undefined {

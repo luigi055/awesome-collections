@@ -1,12 +1,12 @@
 import { it, expect } from 'vitest';
 import { RawLinkedList } from '../../raw-linked-list';
 import { push } from '../push';
-import { forEachReverse } from './for-each-reverse';
+import { _forEachReverse } from './_for-each-reverse';
 
 it('should return undefined when the linked list is empty', () => {
   const nodes = new RawLinkedList<number>();
 
-  const returnedValue = forEachReverse<number>(nodes, (value) => {
+  const returnedValue = _forEachReverse<number>(nodes, (value) => {
     return value + value;
   });
 
@@ -17,7 +17,7 @@ it('should return undefined when the linked list has values', () => {
   const nodes = new RawLinkedList<number>();
   push(nodes, 345, 23, 345, 12, 80);
 
-  const returnedValue = forEachReverse<number>(nodes, (value) => {
+  const returnedValue = _forEachReverse<number>(nodes, (value) => {
     return value + value;
   });
 
@@ -29,7 +29,7 @@ it('should iterate all the index and values of the linked list', () => {
   push(nodes, 345, 23, 345, 12, 80);
 
   const expectedEntries: [number, number][] = [];
-  forEachReverse<number>(nodes, (value, index) => {
+  _forEachReverse<number>(nodes, (value, index) => {
     expectedEntries.push([index, value]);
   });
 

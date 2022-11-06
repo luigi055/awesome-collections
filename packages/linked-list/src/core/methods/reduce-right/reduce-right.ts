@@ -1,5 +1,5 @@
 import { LinkedListDataStructure } from '../../raw-linked-list';
-import { forEachReverse } from '../for-each-reverse';
+import { _forEachReverse } from '../_for-each-reverse';
 
 export function reduceRight<T, U = any, This = any>(
   this: This,
@@ -19,7 +19,7 @@ export function reduceRight<T, U = any, This = any>(
 
   let currentPreviousValue = initialValue;
 
-  forEachReverse<T>(nodes, (value, index) => {
+  _forEachReverse<T>(nodes, (value, index) => {
     if (!currentPreviousValue && isInitialValueMissing) {
       currentPreviousValue = value;
       return;
