@@ -21,6 +21,6 @@ export type {
   Searchable,
   Sliceable,
   Sortable,
-} from './core/traits';
+} from 'awesome-collections-core';
 
 export { LinkedList };

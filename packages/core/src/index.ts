@@ -15,4 +15,4 @@ export type {
   Searchable,
   Sliceable,
   Sortable,
-} from '../../../../../common/traits';
+} from './traits';
