@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.2](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.1.0-alpha.1...awesome-collections-linked-list@0.1.0-alpha.2) (2022-11-05)
+
+### Features
+
+- traits are now general purpose and accessible privately by all packages ([1612a45](https://github.com/luigi055/awesome-collections/commit/1612a456f249514bf8bc3e0877664a7b841a6704))
+
 # [0.1.0-alpha.1](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.1.0-alpha.0...awesome-collections-linked-list@0.1.0-alpha.1) (2022-11-05)
 
 **Note:** Version bump only for package awesome-collections-linked-list
