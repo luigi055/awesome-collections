@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.4](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.1.0-alpha.3...awesome-collections-linked-list@0.1.0-alpha.4) (2022-11-06)
+
+### Bug Fixes
+
+- **linked-list:** fixes circular dependencies with concat, splice, flat and flatMap methods ([1d3db45](https://github.com/luigi055/awesome-collections/commit/1d3db45813090f7c931a476d787c02f0c6234168))
+
+### Features
+
+- **linked-list, core:** creates the core package and now linked list uses core internally ([52e7d9f](https://github.com/luigi055/awesome-collections/commit/52e7d9fc48c06ce998b571a72f635a3feabb72fe))
+- **linked-list:** renames property rawLinkedList to nodes ([ab78bf0](https://github.com/luigi055/awesome-collections/commit/ab78bf00b3f16d2cc1cdd4eda77c17195c59248d))
+
 # [0.1.0-alpha.3](https://github.com/luigi055/awesome-collections/compare/awesome-collections-linked-list@0.1.0-alpha.2...awesome-collections-linked-list@0.1.0-alpha.3) (2022-11-06)
 
 ### Bug Fixes
