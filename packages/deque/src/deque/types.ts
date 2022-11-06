@@ -1,4 +1,4 @@
-import type * as traits from 'awesome-collections-core';
+// import type * as traits from 'awesome-collections-core';
 
 export type AbstractDeque<T> = {
   get size(): number;
