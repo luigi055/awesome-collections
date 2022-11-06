@@ -4,6 +4,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "description": "LinkedList data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
+  "types": "dist/typings/packages/linked-list/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -20,7 +21,6 @@
     "test:coverage": "pnpm test -- --coverage"
   },
   "sideEffects": false,
-  "types": "dist/typings/index.d.ts",
   "author": "Pedro La Rosa <pedrolarosad@gmail.com>",
   "license": "ISC",
   "devDependencies": {

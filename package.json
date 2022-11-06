@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "nx run-many --target=build --parallel",
+    "bootstrap": "lerna run bootstrap",
     "lint": "eslint . --ext .ts  --cache --cache-strategy content",
     "prepare": "husky install && pnpm --silent build",
     "test": "nx run-many --target=test --parallel",

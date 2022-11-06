@@ -23,4 +23,5 @@ export type {
   Sortable,
 } from './core/traits';
 
+export { LinkedList };
 export default LinkedList;
