@@ -23,6 +23,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@nrwl/nx-cloud": "latest",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "commitizen": "^4.2.5",
@@ -34,8 +35,7 @@
     "lerna": "^6.0.0",
     "nx": "15.0.10",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.2",
-    "@nrwl/nx-cloud": "latest"
+    "typescript": "^4.8.2"
   },
   "config": {
     "commitizen": {

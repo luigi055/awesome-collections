@@ -11,16 +11,30 @@ export class Deque<T = any> implements AbstractDeque<T> {
     return linkedList instanceof Deque;
   }
 
-  constructor() {
-    this.#linkedList = new LinkedList<T>();
+  constructor(iterator?: Iterable<T>) {
+    this.#linkedList = new LinkedList<T>(iterator);
+  }
+
+  public [Symbol.iterator]() {
+    return this.#linkedList.values();
+  }
+
+  public values() {
+    return this.#linkedList.values();
+  }
+  public entries() {
+    return this.#linkedList.entries();
+  }
+  public keys() {
+    return this.#linkedList.keys();
   }
 
   public get size(): number {
     return this.#linkedList.size;
   }
 
-  public unshift(value: T): number {
-    return this.#linkedList.unshift(value);
+  public unshift(...items: T[]): number {
+    return this.#linkedList.unshift(...items);
   }
 
   public shift(): T | undefined {
@@ -33,8 +47,8 @@ export class Deque<T = any> implements AbstractDeque<T> {
     return this.#linkedList.pop();
   }
 
-  public push(value: T): number {
-    return this.#linkedList.push(value);
+  public push(...items: T[]): number {
+    return this.#linkedList.push(...items);
   }
 
   public peekFirst(): T | undefined {

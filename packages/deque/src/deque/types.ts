@@ -1,4 +1,4 @@
-// import type * as traits from 'awesome-collections-core';
+import type * as traits from 'awesome-collections-core';
 
 export type AbstractDeque<T> = {
   get size(): number;
@@ -8,9 +8,8 @@ export type AbstractDeque<T> = {
   push(value: T): number;
   peekFirst(): T | undefined;
   peekLast(): T | undefined;
-};
-
-// & traits.IterableDataStructure<T> &
+} & traits.IterableDataStructure<T>;
+//&
 //   traits.Sliceable<T> &
 //   traits.Searchable<T> &
 //   traits.Indexable<T> &
