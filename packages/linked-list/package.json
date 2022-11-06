@@ -1,6 +1,6 @@
 {
   "name": "awesome-collections-linked-list",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "description": "LinkedList data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
