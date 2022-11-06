@@ -1,6 +1,6 @@
 {
   "name": "awesome-collections-linked-list",
-  "version": "0.1.0-alpha.6",
+  "version": "0.1.0-alpha.7",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "description": "LinkedList data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
@@ -45,5 +45,6 @@
     "@babel/runtime": "^7.18.9",
     "awesome-collections-core": "workspace:*"
   },
-  "homepage": "https://github.com/luigi055/data-structures-extentions"
+  "homepage": "https://github.com/luigi055/data-structures-extentions",
+  "gitHead": "f4107e1f0df94e459f9e087d76786f0dc5d3c5bc"
 }

@@ -1,6 +1,6 @@
 {
   "name": "awesome-collections-core",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "description": "core functionalities and traits for implementing awesome collections",
@@ -41,5 +41,6 @@
   "dependencies": {
     "@babel/runtime": "^7.18.9"
   },
-  "homepage": "https://github.com/luigi055/data-structures-extentions"
+  "homepage": "https://github.com/luigi055/data-structures-extentions",
+  "gitHead": "f4107e1f0df94e459f9e087d76786f0dc5d3c5bc"
 }
