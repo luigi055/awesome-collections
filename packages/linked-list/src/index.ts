@@ -24,4 +24,3 @@ export type {
 } from './core/traits';
 
 export { LinkedList };
-export default LinkedList;

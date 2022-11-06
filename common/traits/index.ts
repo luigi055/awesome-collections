@@ -1,4 +1,5 @@
 export type { Concatenate } from './concatenate';
+export type { Fillable } from './fillable';
 export type { Filterable } from './filterable';
 export type { FlatMap } from './flat-map';
 export type { Flatten } from './flatten';

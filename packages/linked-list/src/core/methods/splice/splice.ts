@@ -1,13 +1,14 @@
-import { LinkedList } from '../../../linked-list';
+import { DoublyLinkedList } from '../../../linked-list';
 import { DoublyLinkedListNode, LinkedListNode } from '../../linked-list-node';
 import { _getNode } from '../_get-node';
 
 function spliceFromStart<T>(
-  linkedList: LinkedList<T>,
+  linkedList: DoublyLinkedList<T>,
   deleteCount: number,
   ...items: T[]
 ) {
-  const newLinkedList = new LinkedList<T>();
+  const newLinkedList = linkedList.slice(0, 0) as DoublyLinkedList<T>;
+
   let i = 1;
   while (i <= deleteCount && linkedList.size > 0) {
     const shiftedElement = linkedList.shift();
@@ -26,7 +27,7 @@ function spliceFromStart<T>(
 }
 
 function insertMany<T>(
-  linkedList: LinkedList<T>,
+  linkedList: DoublyLinkedList<T>,
   index: number,
   ...items: T[]
 ): DoublyLinkedListNode<T> | undefined {
@@ -52,7 +53,7 @@ function insertMany<T>(
 }
 
 export function splice<T>(
-  linkedList: LinkedList<T>,
+  linkedList: DoublyLinkedList<T>,
   start: number,
   deleteCount: number,
   ...items: T[]
@@ -61,7 +62,7 @@ export function splice<T>(
   if (normalizedStart === 0)
     return spliceFromStart<T>(linkedList, deleteCount, ...items);
 
-  const returnedLinkedList = new LinkedList<T>();
+  const returnedLinkedList = linkedList.slice(0, 0) as DoublyLinkedList<T>;
   const currentAfterItemsInserted = insertMany<T>(
     linkedList,
     normalizedStart - 1,

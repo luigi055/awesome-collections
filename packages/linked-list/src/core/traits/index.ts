@@ -1,6 +1,7 @@
 export type {
   Concatenate,
   Entry,
+  Fillable,
   Filterable,
   FlatMap,
   Flatten,

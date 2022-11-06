@@ -4,7 +4,7 @@ export interface IterableDataStructure<T> {
   /**
    * Returns an iterable of key, value pairs for every entry in the linked list
    */
-  entries(): Iterable<[number, T]>;
+  entries(): Iterable<[number, T]> & Iterator<[number, T]>;
 
   /**
    * Returns an iterable of keys in the linked list

@@ -5,7 +5,7 @@ export interface ForEach<T = any> {
    * @param thisArg  An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
    */
   forEach(
-    callbackfn: (value: T, index: number, linkedList: ForEach) => void,
+    callbackfn: (value: T, index: number, linkedList: ForEach<T>) => void,
     thisArg?: any
   ): void;
 }

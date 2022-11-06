@@ -5,6 +5,7 @@
   "module": "dist/index.esm.js",
   "description": "LinkedList data structures missing in ES. keeping similar API syntax and behavior as Map, Set and Array",
   "types": "dist/typings/packages/linked-list/src/index.d.ts",
+  "source": "./src/index.ts",
   "files": [
     "dist"
   ],

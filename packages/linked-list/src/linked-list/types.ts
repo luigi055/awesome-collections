@@ -1,6 +1,8 @@
+import { LinkedListDataStructure } from '../core/raw-linked-list';
 import type * as traits from '../core/traits';
 
 export type DoublyLinkedList<T> = {
+  rawLinkedList: LinkedListDataStructure<T>;
   /**
    * @returns the number of elements in the Linked list.
    */
@@ -78,6 +80,7 @@ export type DoublyLinkedList<T> = {
   traits.Indexable<T> &
   traits.Functor<T> &
   traits.ForEach<T> &
+  traits.Fillable<T> &
   traits.Filterable<T> &
   traits.Sortable<T> &
   traits.Reducible<T> &
