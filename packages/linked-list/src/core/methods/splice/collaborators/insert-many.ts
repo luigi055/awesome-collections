@@ -1,19 +1,20 @@
-import { DoublyLinkedList } from '../../../../linked-list';
 import {
   DoublyLinkedListNode,
   LinkedListNode,
 } from '../../../linked-list-node';
+import { LinkedListDataStructure } from '../../../raw-linked-list';
+import { push } from '../../push';
 import { _getNode } from '../../_get-node';
 
 export function insertMany<T>(
-  linkedList: DoublyLinkedList<T>,
+  linkedList: LinkedListDataStructure<T>,
   index: number,
   ...items: T[]
 ): DoublyLinkedListNode<T> | undefined {
-  let current = _getNode(linkedList.nodes, index);
+  let current = _getNode<T>(linkedList, index);
   if (!current) {
-    linkedList.push(...items);
-    return linkedList.nodes.tail;
+    push<T>(linkedList, ...items);
+    return linkedList.tail;
   }
 
   for (const item of items) {
@@ -23,7 +24,7 @@ export function insertMany<T>(
     newNode.previous = current;
     current.next = newNode;
 
-    linkedList.nodes.length++;
+    linkedList.length++;
 
     current = current?.next;
   }

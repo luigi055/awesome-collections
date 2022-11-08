@@ -321,7 +321,14 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     ...items: T[]
   ): LinkedList<T>;
   public splice(start: number, deleteCount = this.size, ...items: T[]) {
-    return methods.splice<T>(this, start, deleteCount, ...items);
+    const newLinkedList = new LinkedList<T>();
+    newLinkedList.nodes = methods.splice<T>(
+      this.nodes,
+      start,
+      deleteCount,
+      ...items
+    );
+    return newLinkedList;
   }
 
   public flat(depth = 1): LinkedList<T> {

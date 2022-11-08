@@ -1,10 +1,11 @@
-import { DoublyLinkedList } from '../../../linked-list';
+import { RawLinkedList } from '../../raw-linked-list/raw-linked-list';
+import { LinkedListDataStructure } from '../../raw-linked-list';
 import { insertMany } from './collaborators/insert-many';
 import { spliceFromStart } from './collaborators/splice-from-start';
+import { push } from '../push';
 
-// TODO: implement function operating over the nodes instead of the LinkedList
 export function splice<T>(
-  linkedList: DoublyLinkedList<T>,
+  linkedList: LinkedListDataStructure<T>,
   start: number,
   deleteCount: number,
   ...items: T[]
@@ -13,7 +14,7 @@ export function splice<T>(
   if (normalizedStart === 0)
     return spliceFromStart<T>(linkedList, deleteCount, ...items);
 
-  const returnedLinkedList = linkedList.slice(0, 0) as DoublyLinkedList<T>;
+  const returnedLinkedList = new RawLinkedList<T>();
   const currentAfterItemsInserted = insertMany<T>(
     linkedList,
     normalizedStart - 1,
@@ -24,7 +25,7 @@ export function splice<T>(
     const removedNode = currentAfterItemsInserted?.next;
     if (!removedNode) break;
 
-    returnedLinkedList.push(removedNode.value);
+    push<T>(returnedLinkedList, removedNode.value);
     if (currentAfterItemsInserted) {
       currentAfterItemsInserted.next = removedNode?.next;
     }
@@ -32,10 +33,10 @@ export function splice<T>(
     if (currentAfterItemsInserted?.next) {
       currentAfterItemsInserted.next.previous = currentAfterItemsInserted;
     } else {
-      linkedList.nodes.tail = currentAfterItemsInserted;
+      linkedList.tail = currentAfterItemsInserted;
     }
 
-    linkedList.nodes.length--;
+    linkedList.length--;
   }
 
   return returnedLinkedList;

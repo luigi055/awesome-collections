@@ -1,24 +1,27 @@
-import { DoublyLinkedList } from '../../../../linked-list';
+import { RawLinkedList } from '../../../raw-linked-list/raw-linked-list';
+import { LinkedListDataStructure } from '../../../raw-linked-list';
+import { shift } from '../../shift';
+import { push } from '../../push';
 
 export function spliceFromStart<T>(
-  linkedList: DoublyLinkedList<T>,
+  linkedList: LinkedListDataStructure<T>,
   deleteCount: number,
   ...items: T[]
 ) {
-  const newLinkedList = linkedList.slice(0, 0) as DoublyLinkedList<T>;
+  const newLinkedList = new RawLinkedList<T>();
 
   let i = 1;
-  while (i <= deleteCount && linkedList.size > 0) {
-    const shiftedElement = linkedList.shift();
+  while (i <= deleteCount && linkedList.length > 0) {
+    const shiftedElement = shift<T>(linkedList);
 
     if (shiftedElement) {
-      newLinkedList.push(shiftedElement);
+      push(newLinkedList, shiftedElement);
     }
     i++;
   }
 
   for (const item of items) {
-    linkedList.push(item);
+    push(linkedList, item);
   }
 
   return newLinkedList;
