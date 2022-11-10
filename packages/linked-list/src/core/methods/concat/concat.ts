@@ -14,7 +14,7 @@ export function concat<T>(
 
   for (const item of items) {
     if (_isLinkedList<T>(item)) {
-      pushIterator<T>(newLinkedList, item.values());
+      pushIterator<T>(newLinkedList.nodes, item.values());
     } else {
       newLinkedList.push(item);
     }

@@ -21,7 +21,7 @@ export function flatMap<T, U, This = undefined>(
     const cbResult = callback.call(thisArg!, current.value, i, linkedList);
 
     if (_isLinkedList(cbResult)) {
-      pushIterator<U>(newLinkedList, cbResult.values());
+      pushIterator<U>(newLinkedList.nodes, cbResult.values());
     } else {
       newLinkedList.push(cbResult as U);
     }

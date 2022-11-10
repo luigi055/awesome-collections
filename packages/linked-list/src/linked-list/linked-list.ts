@@ -94,8 +94,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
 
   public slice(start = 0, end: number = this.nodes.length): LinkedList<T> {
     const newLinkedList = new LinkedList<T>();
-    const addValue = (currentValue: T) => newLinkedList.push(currentValue);
-    methods.slice(this.nodes, addValue, start, end);
+    newLinkedList.nodes = methods.slice(this.nodes, start, end);
 
     return newLinkedList;
   }
