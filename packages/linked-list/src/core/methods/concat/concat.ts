@@ -1,22 +1,33 @@
 import { DoublyLinkedList } from '../../../linked-list';
+import { LinkedListDataStructure, RawLinkedList } from '../../raw-linked-list';
+import { isRawLinkedList } from '../is-raw-linked-list';
+import { isNodeable } from '../is_nodeable.ts';
+import { push } from '../push';
 import { pushIterator } from '../push-iterator';
-import { _isLinkedList } from '../_is-linked-list';
+import { slice } from '../slice';
+import { values } from '../values';
 
-// TODO: implement function operating over the nodes instead of the LinkedList
 export function concat<T>(
-  linkedList: DoublyLinkedList<T>,
-  ...items: (DoublyLinkedList<T> | T)[]
+  linkedList: LinkedListDataStructure<T>,
+  ...items: (
+    | LinkedListDataStructure<T>
+    | { nodes: LinkedListDataStructure<T> }
+    | T
+  )[]
 ) {
-  const newLinkedList = linkedList.slice(
-    0,
-    linkedList.size
-  ) as DoublyLinkedList<T>;
+  if (!(linkedList instanceof RawLinkedList))
+    throw new TypeError('It receives an invalid node as first argument');
+
+  const newLinkedList = slice(linkedList, 0, linkedList.length);
 
   for (const item of items) {
-    if (_isLinkedList<T>(item)) {
-      pushIterator<T>(newLinkedList.nodes, item.values());
+    if (!isNodeable(item) && !isRawLinkedList(item)) {
+      push<T>(newLinkedList, item);
     } else {
-      newLinkedList.push(item);
+      pushIterator<T>(
+        newLinkedList,
+        values(isNodeable(item) ? item.nodes : item)
+      );
     }
   }
 

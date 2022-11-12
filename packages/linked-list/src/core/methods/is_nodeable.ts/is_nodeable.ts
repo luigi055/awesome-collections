@@ -2,7 +2,7 @@ import { LinkedListDataStructure, RawLinkedList } from '../../raw-linked-list';
 
 export function isNodeable(
   element: any
-): element is { node: LinkedListDataStructure } {
+): element is { nodes: LinkedListDataStructure } {
   return (
     Boolean(element?.nodes) &&
     'nodes' in element &&

@@ -310,7 +310,9 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public concat(...items: (LinkedList<T> | T)[]): LinkedList<T> {
-    return methods.concat<T>(this, ...items) as LinkedList<T>;
+    const newLinkedList = new LinkedList<T>();
+    newLinkedList.nodes = methods.concat<T>(this.nodes, ...items);
+    return newLinkedList;
   }
 
   public splice(start: number, deleteCount?: number): LinkedList<T>;
