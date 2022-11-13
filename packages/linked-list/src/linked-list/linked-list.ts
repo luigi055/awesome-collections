@@ -347,12 +347,13 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     ) => U | LinkedList<U>,
     thisArg?: This
   ): LinkedList<U> {
-    return methods.flatMap<T, U, This>(
-      this,
-      new LinkedList<U>(),
+    const newLinkedList = new LinkedList<U>();
+    newLinkedList.nodes = methods.flatMap<T, U, This>(
+      this.nodes,
       callback,
       thisArg
-    ) as LinkedList<U>;
+    );
+    return newLinkedList;
   }
 
   public fill(value: T, start = 0, end = this.size): LinkedList<T> {

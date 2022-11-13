@@ -1,29 +1,34 @@
-import { DoublyLinkedList } from '../../../linked-list';
+import { RawLinkedList } from './../../raw-linked-list/raw-linked-list';
 import { pushIterator } from '../push-iterator';
-import { _isLinkedList } from '../_is-linked-list';
+import { isNodeable } from '../is_nodeable.ts';
+import { isRawLinkedList } from '../is-raw-linked-list';
+import { values } from '../values';
+import { push } from '../push';
+import { LinkedListDataStructure } from '../../raw-linked-list';
 
-// TODO: implement function operating over the nodes instead of the LinkedList
 export function flatMap<T, U, This = undefined>(
-  linkedList: DoublyLinkedList<T>,
-  newLinkedList: DoublyLinkedList<U>,
+  linkedList: LinkedListDataStructure<T>,
   callback: (
     this: This,
     value: T,
     index?: number,
     linkedList?: any
-  ) => U | DoublyLinkedList<U>,
+  ) => U | LinkedListDataStructure<U> | { nodes: LinkedListDataStructure<U> },
   thisArg?: This
-): DoublyLinkedList<U> {
-  if (linkedList.nodes.head === undefined) return newLinkedList;
+): LinkedListDataStructure<U> {
+  const newLinkedList = new RawLinkedList<U>();
+  if (linkedList.head === undefined) return newLinkedList;
   let i = 0;
-  let current = linkedList.nodes.head;
-  while (i < linkedList.size) {
+  let current = linkedList.head;
+  while (i < linkedList.length) {
     const cbResult = callback.call(thisArg!, current.value, i, linkedList);
 
-    if (_isLinkedList(cbResult)) {
-      pushIterator<U>(newLinkedList.nodes, cbResult.values());
+    if (isRawLinkedList(cbResult)) {
+      pushIterator<U>(newLinkedList, values<U>(cbResult));
+    } else if (isNodeable<U>(cbResult)) {
+      pushIterator<U>(newLinkedList, values<U>(cbResult.nodes));
     } else {
-      newLinkedList.push(cbResult as U);
+      push<U>(newLinkedList, cbResult);
     }
 
     if (current.next) {
