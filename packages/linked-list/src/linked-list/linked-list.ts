@@ -333,7 +333,9 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public flat(depth = 1): LinkedList<T> {
-    return methods.flat<T>(this, depth) as LinkedList<T>;
+    const newLinkedList = new LinkedList<T>();
+    newLinkedList.nodes = methods.flat<T>(this.nodes, depth);
+    return newLinkedList;
   }
 
   public flatMap<U, This = undefined>(

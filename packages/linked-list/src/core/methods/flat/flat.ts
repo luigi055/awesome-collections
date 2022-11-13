@@ -1,18 +1,29 @@
-import { DoublyLinkedList } from '../../../linked-list';
-import { _isLinkedList } from '../_is-linked-list';
+import { LinkedListDataStructure, RawLinkedList } from '../../raw-linked-list';
+import { concat } from '../concat';
+import { isRawLinkedList } from '../is-raw-linked-list';
+import { isNodeable } from '../is_nodeable.ts';
+import { reduce } from '../reduce';
+import { slice } from '../slice';
 
-// TODO: implement function operating over the nodes instead of the LinkedList
 export function flat<T>(
-  linkedList: DoublyLinkedList<T>,
+  linkedList: LinkedListDataStructure<T>,
   depth: number
-): DoublyLinkedList<T> {
+): LinkedListDataStructure<T> {
+  if (!(linkedList instanceof RawLinkedList))
+    throw new TypeError('It receives an invalid node as first argument');
+
   if (depth < 1) {
-    return linkedList.slice(0, linkedList.size) as DoublyLinkedList<T>;
+    return slice<T>(linkedList, 0, linkedList.length);
   }
 
-  return linkedList.reduce(
-    (acc: any | T, val: T) =>
-      acc.concat(_isLinkedList<T>(val) ? flat(val, depth - 1) : val),
-    linkedList.slice(0, 0)
-  ) as DoublyLinkedList<T>;
+  return reduce<T>(
+    linkedList,
+    (acc, val) => {
+      if (!isNodeable(val) && !isRawLinkedList(val)) {
+        return concat(acc, val);
+      }
+      return concat(acc, flat(isNodeable(val) ? val.nodes : val, depth - 1));
+    },
+    new RawLinkedList<T>()
+  );
 }
