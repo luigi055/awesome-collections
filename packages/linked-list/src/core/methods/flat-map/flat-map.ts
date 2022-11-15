@@ -14,7 +14,8 @@ export function flatMap<T, U, This = undefined>(
     index?: number,
     linkedList?: any
   ) => U | LinkedListDataStructure<U> | { nodes: LinkedListDataStructure<U> },
-  thisArg?: This
+  thisArg?: This,
+  context: any = null
 ): LinkedListDataStructure<U> {
   const newLinkedList = new RawLinkedList<U>();
   if (linkedList.head === undefined) return newLinkedList;
@@ -25,10 +26,15 @@ export function flatMap<T, U, This = undefined>(
 
     if (isRawLinkedList(cbResult)) {
       pushIterator<U>(newLinkedList, values<U>(cbResult));
-    } else if (isNodeable<U>(cbResult)) {
+    } else if (
+      isNodeable<U>(cbResult) &&
+      cbResult.constructor.name === context.constructor.name
+    ) {
       pushIterator<U>(newLinkedList, values<U>(cbResult.nodes));
     } else {
-      push<U>(newLinkedList, cbResult);
+      push<
+        U | LinkedListDataStructure<U> | { nodes: LinkedListDataStructure<U> }
+      >(newLinkedList, cbResult);
     }
 
     if (current.next) {

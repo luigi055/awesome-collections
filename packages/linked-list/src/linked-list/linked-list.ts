@@ -351,7 +351,8 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
     newLinkedList.nodes = methods.flatMap<T, U, This>(
       this.nodes,
       callback,
-      thisArg
+      thisArg,
+      this
     );
     return newLinkedList;
   }
