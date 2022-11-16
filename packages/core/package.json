@@ -16,7 +16,10 @@
     "format": "prettier --write .",
     "format:check": "prettier --check . --ignore=coverage",
     "lint:format": "prettier --check .",
-    "lint": "eslint src/**"
+    "lint": "eslint src/**",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "pnpm test -- --coverage"
   },
   "sideEffects": false,
   "author": "Pedro La Rosa <pedrolarosad@gmail.com>",

@@ -8,6 +8,7 @@ export type { Format } from './format';
 export type { Functor } from './functor';
 export type { Indexable } from './indexable';
 export type { IterableDataStructure, Entry } from './iterable';
+export type { Nodeable } from './nodeable';
 export type { Reducible } from './reducible';
 export type { Reversible } from './reversible';
 export type { Searchable } from './searchable';

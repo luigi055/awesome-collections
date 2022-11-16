@@ -1,11 +1,9 @@
 import { LinkedList } from './linked-list';
-export { RawLinkedList } from './core/raw-linked-list';
-export { LinkedListNode } from './core/linked-list-node';
+export { RawLinkedList, LinkedListNode } from 'awesome-collections-core';
 
-export type { DoublyLinkedListNode } from './core/linked-list-node';
-export type { LinkedListDataStructure } from './core/raw-linked-list';
-export type { DoublyLinkedList } from './linked-list';
 export type {
+  LinkedListDataStructure,
+  DoublyLinkedListNode,
   Concatenate,
   Entry,
   Filterable,
@@ -22,5 +20,6 @@ export type {
   Sliceable,
   Sortable,
 } from 'awesome-collections-core';
+export type { DoublyLinkedList } from './linked-list';
 
 export { LinkedList };

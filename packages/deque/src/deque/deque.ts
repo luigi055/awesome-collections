@@ -7,8 +7,8 @@ export class Deque<T = any> implements AbstractDeque<T> {
    * Check if the argument is an deque
    * @returns true if the argument is a deque, otherwise false
    */
-  static isDeque(linkedList: any): linkedList is LinkedList<any> {
-    return linkedList instanceof Deque;
+  static isDeque(object: any): object is LinkedList<any> {
+    return object instanceof Deque;
   }
 
   constructor(iterator?: Iterable<T>) {

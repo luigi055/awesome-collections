@@ -1,6 +1,5 @@
 import type { DoublyLinkedList } from './types';
-import { RawLinkedList } from '../core/raw-linked-list';
-import * as methods from '../core/methods';
+import { RawLinkedList, methods } from 'awesome-collections-core';
 
 export class LinkedList<T = any> implements DoublyLinkedList<T> {
   nodes = new RawLinkedList<T>();
@@ -358,6 +357,7 @@ export class LinkedList<T = any> implements DoublyLinkedList<T> {
   }
 
   public fill(value: T, start = 0, end = this.size): LinkedList<T> {
-    return methods.fill<T>(this, value, start, end);
+    this.nodes = methods.fill<T>(this.nodes, value, start, end);
+    return this;
   }
 }
