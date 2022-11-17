@@ -1,73 +1,73 @@
 import { describe, it, expect } from 'vitest';
 import { Deque } from '../deque';
 
-describe('Linked list is IterableIterator', () => {
-  it('should create an initialize an linked list from an iterable', () => {
-    const deque = new Deque([5, 2, 7, 1, 4]);
+describe('deque is IterableIterator', () => {
+  it('should create an initialize an deque from an iterable', () => {
+    const linkedList = new Deque([5, 2, 7, 1, 4]);
 
-    const expectedDeque = new Deque<number>();
-
-    expectedDeque.push(5, 2, 7, 1, 4);
-
-    expect(deque.size).toBe(5);
-    expect(deque).toEqual(expectedDeque);
+    expect(linkedList.size).toBe(5);
+    expect(linkedList.peekFirst()).toBe(5);
+    expect(linkedList.get(1)).toBe(2);
+    expect(linkedList.get(2)).toBe(7);
+    expect(linkedList.get(3)).toBe(1);
+    expect(linkedList.peekLast()).toBe(4);
   });
 
-  it('should instantiate the linked list using any iterable', () => {
-    const dequeFromArray = new Deque([5, 2, 7, 1, 4]);
-    const dequeFromSet = new Deque(new Set([5, 2, 7, 1, 4]));
-    const dequeFromString = new Deque('hello');
+  it('should instantiate the deque using any iterable', () => {
+    const linkedListFromArray = new Deque([5, 2, 7, 1, 4]);
+    const linkedListFromSet = new Deque(new Set([5, 2, 7, 1, 4]));
+    const linkedListFromString = new Deque('hello');
 
-    const expected = new Deque<number>();
+    const expected = new Deque();
     expected.push(5, 2, 7, 1, 4);
 
-    expect(dequeFromArray).toEqual(expected);
+    expect(linkedListFromArray).toEqual(expected);
 
-    expect(dequeFromSet).toEqual(expected);
-    expect(dequeFromString).toEqual(new Deque(['h', 'e', 'l', 'l', 'o']));
+    expect(linkedListFromSet).toEqual(expected);
+    expect(linkedListFromString).toEqual(new Deque(['h', 'e', 'l', 'l', 'o']));
   });
 
   it('should iterate using the for of loop', () => {
-    const deque = new Deque<number>();
-    deque.push(5, 2, 7, 1, 4);
+    const linkedList = new Deque<number>();
+    linkedList.push(5, 2, 7, 1, 4);
 
     const array = [];
 
-    for (const element of deque) {
+    for (const element of linkedList) {
       array.push(element);
     }
 
     expect(array).toEqual([5, 2, 7, 1, 4]);
-    expect(Array.from(deque)).toEqual([5, 2, 7, 1, 4]);
+    expect(Array.from(linkedList)).toEqual([5, 2, 7, 1, 4]);
   });
 
-  it('should iterate all the values in the linked list', () => {
-    const deque = new Deque([18n, 50n, 44n, 2n, 23n]);
+  it('should iterate all the values in the deque', () => {
+    const linkedList = new Deque([18n, 50n, 44n, 2n, 23n]);
 
     const expectedValues = [];
-    for (const element of deque.values()) {
+    for (const element of linkedList.values()) {
       expectedValues.push(element);
     }
 
     expect(expectedValues).toEqual([18n, 50n, 44n, 2n, 23n]);
   });
 
-  it('should iterate all the keys in the linked list', () => {
-    const deque = new Deque([18n, 50n, 44n, 2n, 23n]);
+  it('should iterate all the keys in the deque', () => {
+    const linkedList = new Deque([18n, 50n, 44n, 2n, 23n]);
 
     const expectedKeys = [];
-    for (const key of deque.keys()) {
+    for (const key of linkedList.keys()) {
       expectedKeys.push(key);
     }
 
     expect(expectedKeys).toEqual([0, 1, 2, 3, 4]);
   });
 
-  it('should iterate all the entries in the linked list', () => {
-    const deque = new Deque([63, 223, 64, 81, 23, 56]);
+  it('should iterate all the entries in the deque', () => {
+    const linkedList = new Deque([63, 223, 64, 81, 23, 56]);
 
     const expectedEntries = [];
-    for (const key of deque.entries()) {
+    for (const key of linkedList.entries()) {
       expectedEntries.push(key);
     }
 
@@ -82,9 +82,9 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should manually go through all the iterator', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque[Symbol.iterator]();
+    const iterator = linkedList[Symbol.iterator]();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
@@ -121,17 +121,17 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should not show removed elements when call the next method manually', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque[Symbol.iterator]();
+    const iterator = linkedList[Symbol.iterator]();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
 
-    deque.pop();
-    deque.pop();
-    deque.pop();
-    deque.pop();
+    linkedList.pop();
+    linkedList.pop();
+    linkedList.pop();
+    linkedList.pop();
 
     const thirdNext = iterator.next();
     const fourthNext = iterator.next();
@@ -166,9 +166,9 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should manually go through all the elements using values method', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque.values();
+    const iterator = linkedList.values();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
@@ -205,16 +205,16 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should not show removed elements when call the next method manually using the values method', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque.values();
+    const iterator = linkedList.values();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
 
-    deque.pop();
-    deque.pop();
-    deque.pop();
+    linkedList.pop();
+    linkedList.pop();
+    linkedList.pop();
 
     const thirdNext = iterator.next();
     const fourthNext = iterator.next();
@@ -249,9 +249,9 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should manually go through all the elements using keys method', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque.keys();
+    const iterator = linkedList.keys();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
@@ -288,16 +288,16 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should not show removed elements when call the next method manually using the keys method', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque.keys();
+    const iterator = linkedList.keys();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
 
-    deque.pop();
-    deque.pop();
-    deque.pop();
+    linkedList.pop();
+    linkedList.pop();
+    linkedList.pop();
 
     const thirdNext = iterator.next();
     const fourthNext = iterator.next();
@@ -332,9 +332,9 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should manually go through all the elements using the entries method', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque.entries();
+    const iterator = linkedList.entries();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
@@ -371,16 +371,16 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should not show removed elements when call the next method manually using the entries method', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
 
-    const iterator = deque.entries();
+    const iterator = linkedList.entries();
 
     const firstNext = iterator.next();
     const secondNext = iterator.next();
 
-    deque.pop();
-    deque.pop();
-    deque.pop();
+    linkedList.pop();
+    linkedList.pop();
+    linkedList.pop();
 
     const thirdNext = iterator.next();
     const fourthNext = iterator.next();
@@ -415,14 +415,14 @@ describe('Linked list is IterableIterator', () => {
   });
 
   it('should each iterator be completely independent when manage its internal iterator state', () => {
-    const deque = new Deque([500, 34, 76, 423, 99]);
+    const linkedList = new Deque([500, 34, 76, 423, 99]);
 
-    const valuesOneIterator = deque[Symbol.iterator]();
+    const valuesOneIterator = linkedList[Symbol.iterator]();
 
     const valuesOneIteratorFirst = valuesOneIterator.next().value;
     const valuesOneIteratorSecond = valuesOneIterator.next().value;
 
-    const valuesTwoIterator = deque[Symbol.iterator]();
+    const valuesTwoIterator = linkedList[Symbol.iterator]();
 
     const valuesTwoIteratorFirst = valuesTwoIterator.next().value;
     const valuesTwoIteratorSecond = valuesTwoIterator.next().value;
@@ -433,8 +433,8 @@ describe('Linked list is IterableIterator', () => {
     expect(valuesTwoIteratorSecond).toBe(34);
   });
   it('should iterable and iterator traits share the same state', () => {
-    const deque = new Deque([5, 8, 3, 13, 6, 9]);
-    const iter = deque.values();
+    const linkedList = new Deque([5, 8, 3, 13, 6, 9]);
+    const iter = linkedList.values();
 
     expect(iter.next()).toEqual({ value: 5, done: false });
     expect(iter.next()).toEqual({ value: 8, done: false });

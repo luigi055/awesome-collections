@@ -1,7 +1,9 @@
-import { Deque } from './deque';
+import { LinkedList } from './deque';
+export { RawLinkedList, LinkedListNode } from 'awesome-collections-core';
 
-export type { AbstractDeque } from './deque';
 export type {
+  LinkedListDataStructure,
+  DoublyLinkedListNode,
   Concatenate,
   Entry,
   Filterable,
@@ -18,5 +20,6 @@ export type {
   Sliceable,
   Sortable,
 } from 'awesome-collections-core';
+export type { DoublyLinkedList } from './deque';
 
-export { Deque };
+export { LinkedList };
