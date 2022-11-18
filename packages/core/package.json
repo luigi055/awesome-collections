@@ -1,6 +1,6 @@
 {
   "name": "awesome-collections-core",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.4",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "description": "core functionalities and traits for implementing awesome collections",
