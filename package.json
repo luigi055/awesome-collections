@@ -13,7 +13,7 @@
     "test:coverage": "nx run-many --target=test:coverage --parallel",
     "types:check": "tsc --noEmit false --outDir .tsbuild/ --incremental --tsBuildInfoFile .tsbuildinfo",
     "format:check": "nx run-many --target=format:check --parallel",
-    "verify": "pnpm types:check && pnpm lint && pnpm format:check && yarn test"
+    "verify": "pnpm types:check && pnpm lint && pnpm format:check && yarn test && pnpm build"
   },
   "keywords": [],
   "author": "",
