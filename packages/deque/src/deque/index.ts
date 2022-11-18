@@ -1,2 +1,2 @@
-export { Deque as LinkedList } from './deque';
-export type { AbstractDeque as DoublyLinkedList } from './types';
+export { Deque } from './deque';
+export type { AbstractDeque } from './types';
